@@ -1,6 +1,18 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { ArrowUpRight, Check, PaperPlaneTilt, PhoneCall, QrCode } from '@phosphor-icons/react';
+import {
+  ArrowUpRight,
+  Check,
+  PaperPlaneTilt,
+  PhoneCall,
+  QrCode,
+  ShoppingBag,
+  Clock,
+  MapPin,
+  ForkKnife,
+  Scissors,
+  FirstAid
+} from '@phosphor-icons/react';
 import { Language } from '../types';
 import { AnimatedUnderline } from './AnimatedUnderline';
 import { Typewriter } from './Typewriter';
@@ -15,56 +27,28 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
 
   const businessCases = [
     {
-      slug: 'zamondosh',
-      title: 'Zamondosh Studio',
-      category: isUz ? 'Kiyim va shourum' : 'Одежда и шоурум',
-      tagline: isUz
-        ? 'Tabiiy paxtadan zamonaviy kiyimlar brendi'
-        : 'Локальный бренд одежды из премиального хлопка',
-      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80',
-      items: [
-        { name: 'Oversize Hoodie', price: '340 000 сум' },
-        { name: 'Cotton T-Shirt Pure', price: '160 000 сум' }
-      ]
-    },
-    {
       slug: 'fastfood',
       title: 'OqTepa Express',
-      category: isUz ? 'Burger va taomlar' : 'Бургеры и доставка',
-      tagline: isUz
-        ? 'Toshkent bo\'ylab issiq taomlar va tezkor yetkazish'
-        : 'Сочные бургеры и доставка по городу за 35 минут',
-      image: 'https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=80',
-      items: [
-        { name: 'Double Cheese Burger', price: '48 000 сум' },
-        { name: 'Lavash Beef Special', price: '38 000 сум' }
-      ]
+      category: isUz ? 'Kafe va yetkazish' : 'Кафе и доставка',
+      type: 'food'
     },
     {
-      slug: 'safia',
-      title: 'Safia Patisserie',
-      category: isUz ? 'Shirinliklar uyi' : 'Кондитерский дом',
-      tagline: isUz
-        ? 'Har kuni yangi pishiriqlar, tortlar va qahva'
-        : 'Свежая выпечка, авторские десерты и кофе',
-      image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=700&q=80',
-      items: [
-        { name: 'Pistachio San Sebastian', price: '42 000 сум' },
-        { name: 'Signature Almond Croissant', price: '28 000 сум' }
-      ]
+      slug: 'zamondosh',
+      title: 'Zamondosh Studio',
+      category: isUz ? 'Kiyim va uslub' : 'Шоурум одежды',
+      type: 'fashion'
     },
     {
-      slug: 'barbershop',
+      slug: 'medlife',
+      title: 'MedLife Dental',
+      category: isUz ? 'Stomatologiya' : 'Стоматология',
+      type: 'medical'
+    },
+    {
+      slug: 'barber',
       title: 'Brothers Club',
-      category: isUz ? 'Erkaklar sartaroshxonasi' : 'Мужской салон',
-      tagline: isUz
-        ? 'Erkaklar soch turmagi va soqol parvarishi'
-        : 'Стрижки, моделирование бороды и спокойная атмосфера',
-      image: 'https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=700&q=80',
-      items: [
-        { name: 'Стрижка + Стайлинг', price: '120 000 сум' },
-        { name: 'Уход за бородой', price: '70 000 сум' }
-      ]
+      category: isUz ? 'Barbershop' : 'Барбершоп',
+      type: 'grooming'
     }
   ];
 
@@ -73,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
 
   return (
     <section className="relative pt-28 md:pt-36 pb-20 md:pb-28 overflow-hidden radial-ambient">
-      {/* Background radial glow */}
+      {/* Background glow */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-emerald-500/[0.04] blur-[140px] pointer-events-none rounded-full" />
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 relative text-center flex flex-col items-center">
@@ -87,7 +71,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
           <span>saytimiz.uz platform</span>
         </motion.div>
 
-        {/* Monolithic Headline with literal beautiful underline */}
+        {/* Headline with 10 minutes */}
         <motion.h1
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -98,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
             <>
               Biznesingiz uchun{' '}
               <AnimatedUnderline color="#10b981">
-                24 soatda
+                10 daqiqada
               </AnimatedUnderline>{' '}
               raqamli vizitka.
             </>
@@ -106,7 +90,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
             <>
               Сайт-визитка для бизнеса{' '}
               <AnimatedUnderline color="#10b981">
-                за 24 часа
+                за 10 минут
               </AnimatedUnderline>{' '}
               в зоне .uz
             </>
@@ -121,16 +105,16 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
           className="text-sm sm:text-base text-zinc-400 max-w-xl leading-relaxed mb-10 font-normal"
         >
           {isUz
-            ? 'Telegram orqali buyurtma qabul qiluvchi, bosma QR-kodli va millisekundlarda ochiluvchi mustaqil veb-sahifalar.'
-            : 'Автономные страницы с прямой конверсией в Telegram, QR-кодом для заведений и мгновенным откликом без серверов.'}
+            ? 'Oylab kutmasdan darhol ishga tushiring. Telegram orqali to\'g\'ridan-to\'g\'ri buyurtmalar, bosma QR-kod va tezkor yuklanish.'
+            : 'Моментальный запуск без месяцев согласований. Прямые заказы в Telegram, векторный QR-код и моментальная загрузка.'}
         </motion.p>
 
-        {/* Primary CTA button */}
+        {/* Primary CTA */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.25 }}
-          className="flex flex-wrap items-center justify-center gap-4 mb-14"
+          className="flex flex-wrap items-center justify-center gap-4 mb-12"
         >
           <button
             onClick={() => onOpenReserve(currentCase.slug)}
@@ -143,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
           </button>
         </motion.div>
 
-        {/* Typewriter Dynamic Subdomain Bar */}
+        {/* Typewriter Subdomain Selector Bar */}
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -156,9 +140,9 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
                 <span className="text-zinc-600 select-none">https://</span>
                 <Typewriter
                   words={businessCases}
-                  typingSpeed={85}
+                  typingSpeed={80}
                   deletingSpeed={45}
-                  pauseMs={2400}
+                  pauseMs={2500}
                   onWordChange={(idx) => setActiveIdx(idx)}
                   className="text-white font-semibold"
                 />
@@ -172,87 +156,294 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenReserve }) => {
             </div>
           </div>
 
-          {/* Morphing Preview Card synchronized with typewriter */}
+          {/* Quick industry tabs to click directly */}
+          <div className="flex items-center justify-center gap-2 mt-4 overflow-x-auto py-1">
+            {businessCases.map((bc, idx) => (
+              <button
+                key={bc.slug}
+                onClick={() => setActiveIdx(idx)}
+                className={`px-3 py-1 rounded-full text-[11px] font-mono transition-all ${
+                  activeIdx === idx
+                    ? 'bg-white text-zinc-950 font-semibold'
+                    : 'bg-white/[0.03] text-zinc-400 hover:text-white border border-white/5'
+                }`}
+              >
+                {bc.title}
+              </button>
+            ))}
+          </div>
+
+          {/* Radically Diverse Showcase Cards */}
           <div className="mt-6 flex justify-center">
             <AnimatePresence mode="wait">
-              <motion.div
-                key={currentCase.slug}
-                initial={{ opacity: 0, y: 10, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -10, scale: 0.98 }}
-                transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-                className="w-full max-w-md p-1.5 rounded-[2rem] bezel-shell text-left shadow-2xl"
-              >
-                <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-5 space-y-4">
-                  {/* Image cover */}
-                  <div className="relative h-36 rounded-2xl overflow-hidden border border-white/10">
-                    <img
-                      src={currentCase.image}
-                      alt={currentCase.title}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
-                    <div className="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between">
+              {/* 1. FAST FOOD & BURGERS (Food Delivery UI) */}
+              {currentCase.type === 'food' && (
+                <motion.div
+                  key="food"
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full max-w-md p-1.5 rounded-[2rem] bezel-shell text-left shadow-2xl"
+                >
+                  <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-5 space-y-4">
+                    {/* Header with badges */}
+                    <div className="flex items-start justify-between">
                       <div>
-                        <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400">
-                          {currentCase.category}
-                        </span>
-                        <h4 className="text-base font-semibold text-white tracking-tight leading-tight mt-0.5">
-                          {currentCase.title}
+                        <div className="flex items-center gap-1.5 mb-1">
+                          <span className="px-2 py-0.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 font-mono text-[10px]">
+                            HALAL
+                          </span>
+                          <span className="flex items-center gap-1 text-[11px] font-mono text-zinc-400">
+                            <Clock className="w-3 h-3 text-zinc-400" />
+                            30-35 min
+                          </span>
+                        </div>
+                        <h4 className="text-xl font-bold text-white tracking-tight flex items-center gap-2">
+                          <ForkKnife className="w-5 h-5 text-amber-400" />
+                          OqTepa Express
                         </h4>
                       </div>
-                      <span className="text-[11px] font-mono text-emerald-400">
-                        {currentCase.slug}.saytimiz.uz
+                      <span className="font-mono text-xs text-amber-400">★ 4.9 (1.2k)</span>
+                    </div>
+
+                    {/* Food Menu Items */}
+                    <div className="space-y-2">
+                      <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
+                        <div className="min-w-0 pr-2">
+                          <div className="text-xs font-semibold text-white">Double Cheese Burger</div>
+                          <div className="text-[11px] text-zinc-400">Ikki karra mol go'shti, cheddar pishlog'i</div>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <div className="font-mono text-xs text-emerald-400 font-medium">48 000 сум</div>
+                          <span className="text-[10px] text-zinc-400">+ Savatga</span>
+                        </div>
+                      </div>
+
+                      <div className="p-3 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-between">
+                        <div className="min-w-0 pr-2">
+                          <div className="text-xs font-semibold text-white">Lavash Beef Cheese</div>
+                          <div className="text-[11px] text-zinc-400">Yangi sabzavotlar, maxsus sous</div>
+                        </div>
+                        <div className="text-right shrink-0">
+                          <div className="font-mono text-xs text-emerald-400 font-medium">38 000 сум</div>
+                          <span className="text-[10px] text-zinc-400">+ Savatga</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Direct Telegram Order Button */}
+                    <button
+                      onClick={() => onOpenReserve('fastfood')}
+                      className="w-full py-3 rounded-xl bg-emerald-500 text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 hover:bg-emerald-400 transition-colors shadow-lg"
+                    >
+                      <PaperPlaneTilt weight="fill" className="w-4 h-4" />
+                      <span>Telegram orqali buyurtma (86 000 сум)</span>
+                    </button>
+
+                    <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-1 border-t border-white/[0.06]">
+                      <div className="flex items-center gap-1.5">
+                        <QrCode className="w-3.5 h-3.5 text-zinc-400" />
+                        <span>Stol uchun QR menyu</span>
+                      </div>
+                      <span className="text-emerald-400">fastfood.saytimiz.uz</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* 2. ZAMONDOSH (Minimalist Fashion & Showroom) */}
+              {currentCase.type === 'fashion' && (
+                <motion.div
+                  key="fashion"
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full max-w-md p-1.5 rounded-[2rem] bezel-shell text-left shadow-2xl"
+                >
+                  <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-5 space-y-4">
+                    <div className="flex items-center justify-between border-b border-white/[0.06] pb-3">
+                      <div>
+                        <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-500">
+                          Capsule '26 Collection
+                        </span>
+                        <h4 className="text-lg font-serif italic text-white tracking-wide">
+                          Zamondosh Studio
+                        </h4>
+                      </div>
+                      <span className="text-[10px] font-mono border border-white/20 px-2 py-0.5 rounded-full text-zinc-300">
+                        100% Cotton
                       </span>
                     </div>
-                  </div>
 
-                  <p className="text-xs text-zinc-400 leading-relaxed font-normal">
-                    {currentCase.tagline}
-                  </p>
-
-                  {/* Actions */}
-                  <div className="grid grid-cols-2 gap-2">
-                    <button
-                      onClick={() => onOpenReserve(currentCase.slug)}
-                      className="py-2 px-3 rounded-xl bg-white/[0.04] border border-white/10 hover:border-white/20 text-xs font-medium text-white flex items-center justify-center gap-1.5 transition-colors"
-                    >
-                      <PaperPlaneTilt weight="fill" className="w-3.5 h-3.5 text-zinc-300" />
-                      <span>Telegram</span>
-                    </button>
-                    <button
-                      onClick={() => onOpenReserve(currentCase.slug)}
-                      className="py-2 px-3 rounded-xl bg-white text-zinc-950 text-xs font-medium flex items-center justify-center gap-1.5 hover:bg-zinc-200 transition-colors"
-                    >
-                      <PhoneCall className="w-3.5 h-3.5" />
-                      <span>+998 (90) ...</span>
-                    </button>
-                  </div>
-
-                  {/* Items */}
-                  <div className="space-y-1.5 pt-2 border-t border-white/[0.06]">
-                    {currentCase.items.map((item, i) => (
-                      <div
-                        key={i}
-                        className="p-2.5 rounded-xl bg-white/[0.02] border border-white/[0.04] flex items-center justify-between text-xs"
-                      >
-                        <span className="text-zinc-200 font-medium">{item.name}</span>
-                        <span className="font-mono text-zinc-400">{item.price}</span>
+                    {/* Big Lookbook Visual */}
+                    <div className="relative h-40 rounded-2xl overflow-hidden border border-white/10">
+                      <img
+                        src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=700&q=80"
+                        alt="Zamondosh"
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                      <div className="absolute bottom-3 left-3.5 right-3.5 flex items-end justify-between">
+                        <div>
+                          <div className="text-xs font-medium text-white">Oversize Hoodie Tashkent</div>
+                          <div className="font-mono text-xs text-zinc-300">340 000 сум</div>
+                        </div>
+                        {/* Size pills */}
+                        <div className="flex items-center gap-1 font-mono text-[10px]">
+                          <span className="px-1.5 py-0.5 rounded bg-black/60 border border-white/20 text-white">S</span>
+                          <span className="px-1.5 py-0.5 rounded bg-black/60 border border-white/20 text-white">M</span>
+                          <span className="px-1.5 py-0.5 rounded bg-white text-black font-bold">L</span>
+                        </div>
                       </div>
-                    ))}
-                  </div>
-
-                  {/* QR Footnote */}
-                  <div className="pt-2 flex items-center justify-between text-[11px] font-mono text-zinc-500">
-                    <div className="flex items-center gap-1.5">
-                      <QrCode className="w-3.5 h-3.5 text-zinc-400" />
-                      <span>{isUz ? 'Stollar uchun QR mavjud' : 'QR-код для визиток включен'}</span>
                     </div>
-                    <span className="text-emerald-400">0.18s FCP</span>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        onClick={() => onOpenReserve('zamondosh')}
+                        className="py-2.5 px-3 rounded-xl bg-white text-zinc-950 font-medium text-xs flex items-center justify-center gap-1.5 hover:bg-zinc-200 transition-colors"
+                      >
+                        <PaperPlaneTilt weight="fill" className="w-3.5 h-3.5" />
+                        <span>Menejerga yozish</span>
+                      </button>
+                      <button
+                        onClick={() => onOpenReserve('zamondosh')}
+                        className="py-2.5 px-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium text-zinc-300 flex items-center justify-center gap-1.5 hover:text-white transition-colors"
+                      >
+                        <ShoppingBag className="w-3.5 h-3.5" />
+                        <span>Katalog (Instagram)</span>
+                      </button>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-1 border-t border-white/[0.06]">
+                      <span>Instagram bio vizitkasi</span>
+                      <span className="text-zinc-300">zamondosh.saytimiz.uz</span>
+                    </div>
                   </div>
-                </div>
-              </motion.div>
+                </motion.div>
+              )}
+
+              {/* 3. DENTAL & CLINIC (Medical Clinic UI) */}
+              {currentCase.type === 'medical' && (
+                <motion.div
+                  key="medical"
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full max-w-md p-1.5 rounded-[2rem] bezel-shell text-left shadow-2xl"
+                >
+                  <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-5 space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <div className="flex items-center gap-1.5 text-sky-400 font-mono text-[10px] mb-1">
+                          <FirstAid weight="fill" className="w-3.5 h-3.5" />
+                          <span>LITSENZIYA № 4812</span>
+                        </div>
+                        <h4 className="text-lg font-bold text-white tracking-tight">
+                          MedLife Dental Clinic
+                        </h4>
+                        <p className="text-[11px] text-zinc-400 mt-0.5">
+                          Bosh shifokor: Dr. Rustamov (14 yillik tajriba)
+                        </p>
+                      </div>
+                      <div className="text-right font-mono text-[10px] text-zinc-400">
+                        <div>Du-Shan</div>
+                        <div className="text-emerald-400 font-bold">09:00 - 20:00</div>
+                      </div>
+                    </div>
+
+                    {/* Services spec list */}
+                    <div className="space-y-1.5">
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between text-xs">
+                        <span className="text-zinc-200">3D Rentgen va konsultatsiya</span>
+                        <span className="font-mono text-emerald-400 font-medium">Bepul</span>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between text-xs">
+                        <span className="text-zinc-200">AirFlow professional tozalash</span>
+                        <span className="font-mono text-zinc-300">350 000 сум</span>
+                      </div>
+                    </div>
+
+                    <div className="grid grid-cols-2 gap-2">
+                      <button
+                        onClick={() => onOpenReserve('medlife')}
+                        className="py-2.5 px-3 rounded-xl bg-sky-500 text-zinc-950 font-bold text-xs flex items-center justify-center gap-1.5 hover:bg-sky-400 transition-colors"
+                      >
+                        <PhoneCall weight="fill" className="w-3.5 h-3.5" />
+                        <span>Qabulga yozilish</span>
+                      </button>
+                      <button
+                        onClick={() => onOpenReserve('medlife')}
+                        className="py-2.5 px-3 rounded-xl bg-white/[0.04] border border-white/10 text-xs font-medium text-zinc-300 flex items-center justify-center gap-1.5 hover:text-white transition-colors"
+                      >
+                        <MapPin className="w-3.5 h-3.5" />
+                        <span>Yandex / 2GIS</span>
+                      </button>
+                    </div>
+
+                    <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-1 border-t border-white/[0.06]">
+                      <span>Shifokor bilan tezkor aloqa</span>
+                      <span className="text-sky-400">medlife.saytimiz.uz</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
+
+              {/* 4. BARBERSHOP (Gentlemen's Salon UI) */}
+              {currentCase.type === 'grooming' && (
+                <motion.div
+                  key="grooming"
+                  initial={{ opacity: 0, y: 12, scale: 0.98 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: -12, scale: 0.98 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-full max-w-md p-1.5 rounded-[2rem] bezel-shell text-left shadow-2xl"
+                >
+                  <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-5 space-y-4">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <span className="flex items-center gap-1 text-amber-400 font-mono text-[10px] uppercase tracking-wider mb-1">
+                          <Scissors className="w-3 h-3" />
+                          Gentlemen's Club
+                        </span>
+                        <h4 className="text-lg font-bold text-white tracking-tight">
+                          Brothers Barbershop
+                        </h4>
+                      </div>
+                      <span className="px-2 py-0.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 font-mono text-[10px] text-emerald-400">
+                        Bugun 2 ta joy bor
+                      </span>
+                    </div>
+
+                    <div className="space-y-1.5 font-mono text-xs">
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                        <span className="text-zinc-200">Soch turmagi + Yuvish</span>
+                        <span className="text-zinc-300">120 000 сум</span>
+                      </div>
+                      <div className="p-2.5 rounded-xl bg-white/[0.02] border border-white/5 flex items-center justify-between">
+                        <span className="text-zinc-200">Soqol tekislash (Issiq sochiq)</span>
+                        <span className="text-zinc-300">70 000 сум</span>
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => onOpenReserve('barber')}
+                      className="w-full py-2.5 rounded-xl bg-white text-zinc-950 font-bold text-xs flex items-center justify-center gap-2 hover:bg-zinc-200 transition-colors"
+                    >
+                      <PaperPlaneTilt weight="fill" className="w-3.5 h-3.5" />
+                      <span>Vaqtni Telegramda band qilish</span>
+                    </button>
+
+                    <div className="flex items-center justify-between text-[11px] font-mono text-zinc-500 pt-1 border-t border-white/[0.06]">
+                      <span>Master: Top Barber Jasur</span>
+                      <span className="text-amber-400">barber.saytimiz.uz</span>
+                    </div>
+                  </div>
+                </motion.div>
+              )}
             </AnimatePresence>
           </div>
         </motion.div>

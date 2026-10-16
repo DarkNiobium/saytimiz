@@ -16,11 +16,11 @@ export const Showcase: React.FC<ShowcaseProps> = ({ lang, onOpenReserve }) => {
     {
       code: '01 / SPEED',
       icon: Lightning,
-      title: isUz ? 'Toshkent Edge tarmog\'i' : 'Мгновенный отклик на Vercel Edge',
+      title: isUz ? 'Vercel global tarmog\'i' : 'Глобальная сеть Vercel CDN',
       desc: isUz
-        ? 'Sahifalar eng yaqin serverlardan uzatiladi. Ucell va Beeline tarmog\'ida 0.18 soniyada ochiladi.'
-        : 'Кэширование на ближайших POP-узлах Vercel. Мгновенная отрисовка страниц даже на слабом 3G/4G.',
-      metric: '0.18s TTFB'
+        ? 'Sahifalar yengil statik kodda uzatiladi. Ucell va Beeline tarmog\'ida 0.2 soniyada ochiladi.'
+        : 'Оптимизированный статический код весит менее 50 КБ. Мгновенная отрисовка в сетях Ucell, Beeline и Uztelecom.',
+      metric: '50 KB Static'
     },
     {
       code: '02 / TELEGRAM',
@@ -81,7 +81,7 @@ export const Showcase: React.FC<ShowcaseProps> = ({ lang, onOpenReserve }) => {
           <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
             {isUz
               ? 'Nega saytimiz.uz oddiy veb-studiyalar va og\'ir CMS tizimlariga qaraganda ancha qulay.'
-              : 'Почему статическая визитка на Edge работает быстрее и стабильнее тяжелых CMS.'}
+              : 'Почему статическая визитка на Vercel работает быстрее и стабильнее тяжелых CMS.'}
           </p>
         </div>
 

@@ -53,7 +53,7 @@ export const Footer: React.FC<FooterProps> = ({ lang, onOpenReserve }) => {
           <p>© 2026 saytimiz.uz. Barcha huquqlar himoyalangan.</p>
           <div className="flex items-center gap-2">
             <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-            <span className="text-zinc-400">Tashkent Edge Node Active</span>
+            <span className="text-zinc-400">Vercel Global CDN</span>
           </div>
         </div>
       </div>

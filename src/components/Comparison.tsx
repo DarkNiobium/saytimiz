@@ -11,7 +11,7 @@ export const Comparison: React.FC<ComparisonProps> = ({ lang }) => {
   const rows = [
     {
       metric: isUz ? 'Ishga tushirish' : 'Срок запуска',
-      saytimiz: isUz ? '24 soat ichida' : '24 часа',
+      saytimiz: isUz ? '10 daqiqada' : '10 минут',
       traditional: isUz ? '1-2 oy kutiladi' : '1-2 месяца согласований'
     },
     {
@@ -21,7 +21,7 @@ export const Comparison: React.FC<ComparisonProps> = ({ lang }) => {
     },
     {
       metric: isUz ? 'Xosting va infratuzilma' : 'Инфраструктура и хостинг',
-      saytimiz: isUz ? 'Vercel Edge (Doimiy tekin)' : 'Vercel Edge включен навсегда',
+      saytimiz: isUz ? 'Vercel CDN + SSL (Tekin)' : 'Vercel CDN + SSL включены навсегда',
       traditional: isUz ? 'Har oy yoki yiliga alohida to\'lov' : 'Ежемесячная аренда сервера'
     },
     {

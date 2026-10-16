@@ -157,7 +157,7 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
         'Кнопка прямой связи в Telegram и звонка',
         'Готовый QR-код в векторе для печати',
         'Бесплатный SSL-сертификат навсегда',
-        'Хостинг на глобальной сети Vercel Edge'
+        'Быстрый хостинг на глобальной сети Vercel'
       ],
       ctaText: 'Выбрать Старт'
     },
@@ -209,7 +209,7 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
         'Telegram va to\'g\'ridan-to\'g\'ri qo\'ng\'iroq tugmasi',
         'Chop etish uchun tayyor vektorli QR-kod',
         'Doimiy bepul SSL xavfsizlik sertifikati',
-        'Vercel Edge global tarmog\'ida tekin xosting'
+        'Vercel global tarmog\'ida tezkor xosting'
       ],
       ctaText: 'Start tarifini tanlash'
     },
@@ -227,7 +227,7 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
         'Yandex va Google xaritalari bilan integratsiya',
         'Click va Payme orqali to\'lov tugmalari',
         'Tashrif buyuruvchilar va buyurtmalar statistikasi',
-        '12 soat ichida birinchi navbatda ishga tushirish'
+        '10 daqiqa ichida birinchi navbatda ishga tushirish'
       ],
       ctaText: 'Biznes tarifini tanlash'
     },
@@ -254,7 +254,7 @@ export const faqData: Record<'ru' | 'uz', FaqItem[]> = {
   ru: [
     {
       question: 'Зачем мне поддомен brand.saytimiz.uz вместо отдельного сайта?',
-      answer: 'Отдельный домен стоит от 30 000 сум в год плюс от 100 000 сум в месяц за качественный хостинг. С saytimiz.uz вы получаете готовый адрес, моментальный хостинг Vercel Edge, SSL и защиту без ежемесячных платежей.'
+      answer: 'Отдельный домен стоит от 30 000 сум в год плюс от 100 000 сум в месяц за качественный сервер. С saytimiz.uz вы получаете готовый адрес, моментальный хостинг Vercel, SSL и защиту без постоянных расходов.'
     },
     {
       question: 'Как клиенты будут делать заказы?',
@@ -266,7 +266,7 @@ export const faqData: Record<'ru' | 'uz', FaqItem[]> = {
     },
     {
       question: 'Сколько времени занимает запуск сайта?',
-      answer: 'Базовая визитка запускается за 24 часа после того, как вы отправите контакты, логотип и список товаров/услуг.'
+      answer: 'Сайт запускается за 10 минут: подключаем выбранный поддомен, ваши контакты и меню/услуги.'
     },
     {
       question: 'Нужно ли мне уметь программировать?',
@@ -276,7 +276,7 @@ export const faqData: Record<'ru' | 'uz', FaqItem[]> = {
   uz: [
     {
       question: 'Alohida sayt ochishdan ko\'ra brand.saytimiz.uz poddomeni nima uchun qulay?',
-      answer: 'Alohida domen va unga xosting har oy yoki har yili pul talab qiladi. saytimiz.uz bilan siz tayyor manzil, Vercel Edge tarmog\'ida xavfsiz va tezkor xosting hamda bepul SSL sertifikatiga ega bo\'lasiz.'
+      answer: 'Alohida domen va unga server har oy yoki har yili pul talab qiladi. saytimiz.uz bilan siz tayyor manzil, Vercel infratuzilmasida xavfsiz xosting hamda bepul SSL sertifikatiga ega bo\'lasiz.'
     },
     {
       question: 'Mijozlar buyurtmani qanday yuboradi?',
@@ -288,7 +288,7 @@ export const faqData: Record<'ru' | 'uz', FaqItem[]> = {
     },
     {
       question: 'Saytni ishga tushirish qancha vaqt oladi?',
-      answer: 'Barcha ma\'lumotlar (rasmlar, narxlar va aloqa ma\'lumotlari) berilgach, 24 soat ichida saytingiz to\'liq tayyor bo\'ladi.'
+      answer: 'Saytingiz 10 daqiqada tayyor bo\'ladi: tanlangan poddomenni ulaymiz va ma\'lumotlaringizni joylaymiz.'
     },
     {
       question: 'Menda dasturlash bo\'yicha bilim bo\'lishi shartmi?',

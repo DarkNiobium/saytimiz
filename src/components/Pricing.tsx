@@ -44,7 +44,7 @@ export const Pricing: React.FC<PricingProps> = ({ lang, onOpenReserve }) => {
           <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
             {isUz
               ? 'Hech qanday majburiy obuna yo\'q. Faqat bir marta to\'laysiz va saytdan doimiy foydalanasiz.'
-              : 'Один фиксированный платеж при запуске. Vercel Edge и SSL включены навсегда.'}
+              : 'Один фиксированный платеж при запуске. Vercel CDN и SSL включены навсегда.'}
           </p>
         </div>
 
