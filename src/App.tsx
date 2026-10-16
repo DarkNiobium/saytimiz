@@ -31,7 +31,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[#09090b] text-zinc-100 flex flex-col font-sans selection:bg-emerald-500/20 selection:text-emerald-300">
+    <div className="min-h-[100dvh] bg-[#050507] text-[#ededed] flex flex-col font-sans selection:bg-white/20 selection:text-white">
       <Navbar
         lang={lang}
         onToggleLang={toggleLanguage}
@@ -54,7 +54,7 @@ export default function App() {
 
         <Showcase
           lang={lang}
-          onOpenReserve={(name) => handleOpenReserve(name)}
+          onOpenReserve={() => handleOpenReserve()}
         />
 
         <Comparison lang={lang} />

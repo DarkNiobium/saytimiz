@@ -1,73 +1,63 @@
 import React from 'react';
-import { Globe, ArrowUpRight, Sparkle } from '@phosphor-icons/react';
+import { ArrowUpRight } from '@phosphor-icons/react';
 import { Language } from '../types';
 
 interface NavbarProps {
   lang: Language;
   onToggleLang: () => void;
-  onOpenReserve: (subdomain?: string) => void;
+  onOpenReserve: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenReserve }) => {
   const isUz = lang === 'uz';
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-zinc-800/80 bg-[#09090b]/80 backdrop-blur-md">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <header className="fixed top-5 inset-x-0 z-50 max-w-5xl mx-auto w-[94%] pointer-events-none">
+      <div className="glass-dock rounded-full px-4 sm:px-6 py-2.5 flex items-center justify-between pointer-events-auto">
         {/* Brand */}
-        <div className="flex items-center gap-3">
-          <a href="#" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-zinc-900 border border-zinc-700/80 flex items-center justify-center text-emerald-400 group-hover:border-emerald-500/50 transition-colors">
-              <Sparkle weight="fill" className="w-4 h-4" />
-            </div>
-            <span className="font-semibold text-lg tracking-tight text-white">
-              saytimiz<span className="text-emerald-400">.uz</span>
-            </span>
-          </a>
-
-          {/* Real network status indicator */}
-          <div className="hidden sm:flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-zinc-900 border border-zinc-800 text-[11px] font-mono text-zinc-400">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>TAS Edge: 0.18s</span>
+        <a href="#" className="flex items-center gap-2.5 group">
+          <div className="w-7 h-7 rounded-full bg-white text-zinc-950 flex items-center justify-center font-bold text-xs shadow-[0_0_15px_rgba(255,255,255,0.2)]">
+            S
           </div>
-        </div>
+          <span className="font-medium text-sm tracking-tight text-white group-hover:text-zinc-300 transition-colors">
+            saytimiz<span className="text-zinc-500 font-mono text-xs">.uz</span>
+          </span>
+        </a>
 
-        {/* Desktop Nav Links */}
-        <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-400">
-          <a href="#generator" className="hover:text-zinc-100 transition-colors">
-            {isUz ? 'Konstruktor' : 'Конструктор'}
+        {/* Center Links */}
+        <nav className="hidden md:flex items-center gap-7 text-xs font-medium text-zinc-400">
+          <a href="#studio" className="hover:text-white transition-colors">
+            {isUz ? 'Konstruktor' : 'Студия'}
           </a>
-          <a href="#showcase" className="hover:text-zinc-100 transition-colors">
-            {isUz ? 'Namunalar' : 'Примеры'}
+          <a href="#showcase" className="hover:text-white transition-colors">
+            {isUz ? 'Namunalar' : 'Портфолио'}
           </a>
-          <a href="#compare" className="hover:text-zinc-100 transition-colors">
-            {isUz ? 'Taqqoslash' : 'Сравнение'}
+          <a href="#compare" className="hover:text-white transition-colors">
+            {isUz ? 'Taqqoslash' : 'Отличия'}
           </a>
-          <a href="#pricing" className="hover:text-zinc-100 transition-colors">
+          <a href="#pricing" className="hover:text-white transition-colors">
             {isUz ? 'Tariflar' : 'Тарифы'}
-          </a>
-          <a href="#faq" className="hover:text-zinc-100 transition-colors">
-            FAQ
           </a>
         </nav>
 
-        {/* Right side: Language + CTA */}
-        <div className="flex items-center gap-3">
+        {/* Actions */}
+        <div className="flex items-center gap-2.5">
           <button
             onClick={onToggleLang}
-            className="flex items-center gap-1 px-2.5 py-1 rounded-md text-xs font-mono font-medium border border-zinc-800 bg-zinc-900/90 text-zinc-300 hover:text-white hover:border-zinc-700 transition-all active:scale-[0.98]"
-            title="Tilni o'zgartirish / Сменить язык"
+            className="px-2.5 py-1.5 rounded-full text-[11px] font-mono text-zinc-400 hover:text-white hover:bg-white/5 transition-all active:scale-[0.98]"
+            title="Сменить язык / Tilni almashtirish"
           >
-            <Globe className="w-3.5 h-3.5 text-zinc-400" />
-            <span>{isUz ? 'UZ' : 'RU'}</span>
+            {isUz ? 'UZ' : 'RU'}
           </button>
 
           <button
-            onClick={() => onOpenReserve()}
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-emerald-500 text-zinc-950 hover:bg-emerald-400 transition-all active:scale-[0.98] shadow-sm"
+            onClick={onOpenReserve}
+            className="pl-3.5 pr-1.5 py-1.5 rounded-full bg-white text-zinc-950 hover:bg-zinc-200 transition-all active:scale-[0.98] text-xs font-medium flex items-center gap-2 group shadow-[0_0_20px_rgba(255,255,255,0.12)]"
           >
-            <span>{isUz ? 'Nom tanlash' : 'Занять имя'}</span>
-            <ArrowUpRight weight="bold" className="w-3.5 h-3.5" />
+            <span>{isUz ? 'Nom olish' : 'Занять адрес'}</span>
+            <span className="w-5 h-5 rounded-full bg-zinc-950/10 flex items-center justify-center text-zinc-950 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
+              <ArrowUpRight weight="bold" className="w-3 h-3" />
+            </span>
           </button>
         </div>
       </div>

@@ -17,51 +17,51 @@ export const Faq: React.FC<FaqProps> = ({ lang }) => {
   };
 
   return (
-    <section id="faq" className="py-16 md:py-24 border-b border-zinc-800/80 bg-zinc-950">
+    <section className="py-24 md:py-32 border-t border-white/[0.06] bg-[#050507]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
-        {/* Header - Stacked, no split header */}
-        <div className="text-center max-w-xl mx-auto mb-12">
-          <h2 className="text-2xl sm:text-4xl font-bold tracking-tight text-white mb-3">
-            {isUz ? 'Ko\'p beriladigan savollar' : 'Частые вопросы'}
+        {/* Header */}
+        <div className="text-center max-w-xl mx-auto mb-16">
+          <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-white mb-3">
+            {isUz ? 'Savol va javoblar' : 'Часто задаваемые вопросы'}
           </h2>
-          <p className="text-zinc-400 text-sm leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
             {isUz
-              ? 'Xizmat, to\'lov va saytni ulash bo\'yicha barcha asosiy javoblar.'
-              : 'Всё, что нужно знать о подключении, запуске и поддержке вашего сайта.'}
+              ? 'Xizmat qanday ishlashi va ulanish tartibi bo\'yicha aniq ma\'lumotlar.'
+              : 'Всё, что важно знать о доменной привязке, безопасности и техническом запуске.'}
           </p>
         </div>
 
-        {/* Accordion */}
-        <div className="space-y-3">
-          {faqs.map((faq, idx) => {
-            const isOpen = openIndex === idx;
-            return (
-              <div
-                key={idx}
-                className="rounded-xl border border-zinc-800 bg-zinc-900/60 overflow-hidden transition-colors"
-              >
-                <button
-                  onClick={() => toggle(idx)}
-                  className="w-full py-4 px-5 text-left flex items-center justify-between gap-4 hover:bg-zinc-900/90 transition-colors"
-                >
-                  <span className="text-sm sm:text-base font-semibold text-zinc-200">
-                    {faq.question}
-                  </span>
-                  <CaretDown
-                    weight="bold"
-                    className={`w-4 h-4 text-zinc-400 transition-transform duration-200 shrink-0 ${
-                      isOpen ? 'rotate-180 text-emerald-400' : ''
-                    }`}
-                  />
-                </button>
-                {isOpen && (
-                  <div className="px-5 pb-5 pt-1 text-xs sm:text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/60">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+        {/* Double-Bezel FAQ Container */}
+        <div className="p-1.5 rounded-[2rem] bezel-shell">
+          <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-4 sm:p-6 divide-y divide-white/[0.04]">
+            {faqs.map((faq, idx) => {
+              const isOpen = openIndex === idx;
+              return (
+                <div key={idx} className="py-4 first:pt-2 last:pb-2">
+                  <button
+                    onClick={() => toggle(idx)}
+                    className="w-full text-left flex items-center justify-between gap-4 py-2 hover:text-white transition-colors group"
+                  >
+                    <span className="text-xs sm:text-sm font-medium text-zinc-200 group-hover:text-white transition-colors">
+                      {faq.question}
+                    </span>
+                    <span
+                      className={`w-6 h-6 rounded-full bg-white/[0.04] border border-white/5 flex items-center justify-center text-zinc-400 group-hover:text-white transition-transform duration-300 shrink-0 ${
+                        isOpen ? 'rotate-180 bg-white/10 text-white' : ''
+                      }`}
+                    >
+                      <CaretDown weight="bold" className="w-3 h-3" />
+                    </span>
+                  </button>
+                  {isOpen && (
+                    <div className="pt-3 pb-2 text-xs text-zinc-400 leading-relaxed pr-8">
+                      {faq.answer}
+                    </div>
+                  )}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
