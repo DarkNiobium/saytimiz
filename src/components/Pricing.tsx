@@ -1,7 +1,9 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { ArrowUpRight, Check } from '@phosphor-icons/react';
 import { Language } from '../types';
 import { pricingData } from '../data/content';
+import { AnimatedUnderline } from './AnimatedUnderline';
 
 interface PricingProps {
   lang: Language;
@@ -16,22 +18,45 @@ export const Pricing: React.FC<PricingProps> = ({ lang, onOpenReserve }) => {
     <section id="pricing" className="py-24 md:py-32 border-t border-white/[0.06] bg-[#050507]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-xl mb-16">
-          <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-white mb-3">
-            {isUz ? 'Shaffof narxlar' : 'Инвестиция в ваш цифровой адрес'}
+        <div className="max-w-2xl mb-16">
+          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-3">
+            02 / Pricing
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-white mb-4">
+            {isUz ? (
+              <>
+                Oylik to'lovlarsiz{' '}
+                <AnimatedUnderline color="#10b981">
+                  bir martalik
+                </AnimatedUnderline>{' '}
+                shaffof narxlar.
+              </>
+            ) : (
+              <>
+                Инвестиция в адрес{' '}
+                <AnimatedUnderline color="#10b981">
+                  без абонентской платы
+                </AnimatedUnderline>
+                .
+              </>
+            )}
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
             {isUz
-              ? 'Hech qanday yashirin oylik to\'lovlar yo\'q. Bir martalik to\'lov bilan to\'liq tayyor sayt.'
-              : 'Фиксированная разовая оплата без регулярных скрытых списаний и навязанных подписок.'}
+              ? 'Hech qanday majburiy obuna yo\'q. Faqat bir marta to\'laysiz va saytdan doimiy foydalanasiz.'
+              : 'Один фиксированный платеж при запуске. Vercel Edge и SSL включены навсегда.'}
           </p>
         </div>
 
         {/* Double-Bezel Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          {plans.map((plan) => (
-            <div
+          {plans.map((plan, idx) => (
+            <motion.div
               key={plan.id}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.5, delay: idx * 0.1 }}
               className={`p-1.5 rounded-[2.2rem] ${
                 plan.popular ? 'bezel-shell ring-1 ring-white/20' : 'bezel-shell'
               }`}
@@ -47,7 +72,7 @@ export const Pricing: React.FC<PricingProps> = ({ lang, onOpenReserve }) => {
                   <h3 className="text-xl font-semibold text-white tracking-tight mb-2">
                     {plan.title}
                   </h3>
-                  <p className="text-xs text-zinc-400 min-h-[34px] leading-relaxed mb-6">
+                  <p className="text-xs text-zinc-400 min-h-[34px] leading-relaxed mb-6 font-normal">
                     {plan.description}
                   </p>
 
@@ -60,8 +85,8 @@ export const Pricing: React.FC<PricingProps> = ({ lang, onOpenReserve }) => {
 
                   {/* Features */}
                   <ul className="py-6 space-y-3.5">
-                    {plan.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-2.5 text-xs text-zinc-300">
+                    {plan.features.map((feature, fIdx) => (
+                      <li key={fIdx} className="flex items-start gap-2.5 text-xs text-zinc-300">
                         <Check
                           weight="bold"
                           className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5"
@@ -87,7 +112,7 @@ export const Pricing: React.FC<PricingProps> = ({ lang, onOpenReserve }) => {
                   />
                 </button>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

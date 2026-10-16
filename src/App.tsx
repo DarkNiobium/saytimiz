@@ -2,7 +2,6 @@ import { useState } from 'react';
 import { Language } from './types';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { SubdomainSimulator } from './components/SubdomainSimulator';
 import { Showcase } from './components/Showcase';
 import { Comparison } from './components/Comparison';
 import { Pricing } from './components/Pricing';
@@ -31,7 +30,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-[100dvh] bg-[#050507] text-[#ededed] flex flex-col font-sans selection:bg-white/20 selection:text-white">
+    <div className="min-h-[100dvh] bg-[#050507] text-[#ededed] flex flex-col font-sans selection:bg-white selection:text-black">
       <Navbar
         lang={lang}
         onToggleLang={toggleLanguage}
@@ -41,14 +40,6 @@ export default function App() {
       <main className="flex-1">
         <Hero
           lang={lang}
-          onSelectSubdomain={(name) => setSelectedSubdomain(name)}
-          onOpenReserve={(name) => handleOpenReserve(name)}
-        />
-
-        <SubdomainSimulator
-          lang={lang}
-          selectedSubdomain={selectedSubdomain}
-          onSelectSubdomain={(name) => setSelectedSubdomain(name)}
           onOpenReserve={(name) => handleOpenReserve(name)}
         />
 

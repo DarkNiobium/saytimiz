@@ -1,6 +1,8 @@
 import React from 'react';
-import { ArrowUpRight } from '@phosphor-icons/react';
+import { motion } from 'motion/react';
+import { ArrowUpRight, Lightning, PaperPlaneTilt, QrCode, Cpu } from '@phosphor-icons/react';
 import { Language } from '../types';
+import { AnimatedUnderline } from './AnimatedUnderline';
 
 interface ShowcaseProps {
   lang: Language;
@@ -10,124 +12,129 @@ interface ShowcaseProps {
 export const Showcase: React.FC<ShowcaseProps> = ({ lang, onOpenReserve }) => {
   const isUz = lang === 'uz';
 
+  const specs = [
+    {
+      code: '01 / SPEED',
+      icon: Lightning,
+      title: isUz ? 'Toshkent Edge tarmog\'i' : 'Мгновенный отклик на Vercel Edge',
+      desc: isUz
+        ? 'Sahifalar eng yaqin serverlardan uzatiladi. Ucell va Beeline tarmog\'ida 0.18 soniyada ochiladi.'
+        : 'Кэширование на ближайших POP-узлах Vercel. Мгновенная отрисовка страниц даже на слабом 3G/4G.',
+      metric: '0.18s TTFB'
+    },
+    {
+      code: '02 / TELEGRAM',
+      icon: PaperPlaneTilt,
+      title: isUz ? 'To\'g\'ridan Telegram aloqa' : 'Прямой мост в Telegram',
+      desc: isUz
+        ? 'Xaridor buyurtma berishi bilan uning ismi, telefon raqami va tanlangan mahsuloti shaxsiy Telegramingizga tushadi.'
+        : 'Заявка с контактами и выбранными позициями сразу поступает в личный чат владельца или бот.',
+      metric: 'Direct Hook'
+    },
+    {
+      code: '03 / PRINT',
+      icon: QrCode,
+      title: isUz ? 'Vektorli bosma QR-kod' : 'Векторный QR для столов и меню',
+      desc: isUz
+        ? 'Restoran stollari, do\'kon vitrinalari va vizitkalar uchun tayyor SVG va PDF formatdagi skanerlash kodi.'
+        : 'В комплекте передается файл в векторе для наклеек на столы, меню, упаковку и полиграфические визитки.',
+      metric: 'Vector SVG'
+    },
+    {
+      code: '04 / UPTIME',
+      icon: Cpu,
+      title: isUz ? 'Nol soatlik texnik xizmat' : 'Нулевые затраты на администрирование',
+      desc: isUz
+        ? 'WordPressdagi kabi viruslar, buziluvchi plaginlar va server to\'lovlari haqida butunlay unutasiz.'
+        : 'Никаких падающих баз данных, устаревших CMS-плагинов и ежемесячных счетов за хостинг.',
+      metric: '99.99% Uptime'
+    }
+  ];
+
   return (
-    <section id="showcase" className="py-24 md:py-32 border-t border-white/[0.06] bg-[#050507]">
+    <section id="showcase" className="py-24 md:py-32 border-t border-white/[0.06] bg-[#050507] relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-xl mb-16">
-          <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-white mb-3">
-            {isUz ? 'Arxitektura va afzalliklar' : 'Инженерные стандарты saytimiz'}
+        <div className="max-w-2xl mb-16">
+          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-3">
+            01 / Architecture
+          </div>
+          <h2 className="text-2xl sm:text-4xl font-semibold tracking-[-0.03em] text-white mb-4">
+            {isUz ? (
+              <>
+                Vositachilarsiz{' '}
+                <AnimatedUnderline color="#10b981">
+                  to'g'ridan-to'g'ri sotuv
+                </AnimatedUnderline>{' '}
+                keltiruvchi arxitektura.
+              </>
+            ) : (
+              <>
+                Архитектура для{' '}
+                <AnimatedUnderline color="#10b981">
+                  прямых продаж
+                </AnimatedUnderline>{' '}
+                без посредников.
+              </>
+            )}
           </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
             {isUz
-              ? 'Nega saytlarimiz yillar davomida uzluksiz va yuqori tezlikda ishlaydi.'
-              : 'Почему мы отказались от шаблонных CMS в пользу статической Edge-архитектуры.'}
+              ? 'Nega saytimiz.uz oddiy veb-studiyalar va og\'ir CMS tizimlariga qaraganda ancha qulay.'
+              : 'Почему статическая визитка на Edge работает быстрее и стабильнее тяжелых CMS.'}
           </p>
         </div>
 
-        {/* Asymmetrical Hardware Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {/* Card 1: Vercel Edge */}
-          <div className="md:col-span-7 p-1.5 rounded-[2rem] bezel-shell">
-            <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-8 flex flex-col justify-between h-full">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">
-                  01 / Global Edge
-                </span>
-                <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mt-3 mb-2">
-                  {isUz ? 'Millisekundlik javob tezligi' : 'Мгновенный отклик на любом тарифе'}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-md">
-                  {isUz
-                    ? 'Sayt Toshkentdagi Edge-serverlardan tarqatiladi. Ucell, Beeline yoki Uztelecom tarmog\'ida kutishsiz ochiladi.'
-                    : 'Контент кэшируется на ближайших к Узбекистану узлах Vercel. Страницы открываются сразу даже при слабом 3G.'}
-                </p>
-              </div>
+        {/* Double-Bezel Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {specs.map((item, idx) => {
+            const Icon = item.icon;
+            return (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: idx * 0.08 }}
+                className="p-1.5 rounded-[2rem] bezel-shell group hover:border-white/20 transition-all duration-300"
+              >
+                <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-8 flex flex-col justify-between h-full">
+                  <div>
+                    <div className="flex items-center justify-between mb-8">
+                      <span className="font-mono text-[11px] text-zinc-500 tracking-wider">
+                        {item.code}
+                      </span>
+                      <span className="font-mono text-[11px] text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
+                        {item.metric}
+                      </span>
+                    </div>
 
-              <div className="mt-8 pt-6 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs text-zinc-400">
-                <span>Routing: TAS Node</span>
-                <span className="text-emerald-400">0.18s First Contentful Paint</span>
-              </div>
-            </div>
-          </div>
+                    <div className="w-10 h-10 rounded-xl bg-white/[0.03] border border-white/10 flex items-center justify-center text-white mb-5 group-hover:scale-105 group-hover:bg-white/10 transition-all duration-300">
+                      <Icon weight="bold" className="w-5 h-5" />
+                    </div>
 
-          {/* Card 2: Telegram Lead Flow */}
-          <div className="md:col-span-5 p-1.5 rounded-[2rem] bezel-shell">
-            <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-8 flex flex-col justify-between h-full">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">
-                  02 / Telegram Bridge
-                </span>
-                <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mt-3 mb-2">
-                  {isUz ? 'Buyurtmalar to\'g\'ridan Telegramga' : 'Прямой мост в Telegram'}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                  {isUz
-                    ? 'Murakkab adminkalar va elektron pochtani tekshirish shart emas. Mijoz buyurtmasi to\'g\'ridan sizga yetib boradi.'
-                    : 'Никаких забытых паролей от почты. Заявка с телефоном и списком выбранных позиций падает в ваш личный мессенджер.'}
-                </p>
-              </div>
+                    <h3 className="text-xl font-semibold text-white tracking-tight mb-2.5">
+                      {item.title}
+                    </h3>
 
-              <div className="mt-8 pt-6 border-t border-white/[0.06] font-mono text-xs text-zinc-400 flex items-center justify-between">
-                <span>Webhook Bridge</span>
-                <span className="text-zinc-200">Zero Commission</span>
-              </div>
-            </div>
-          </div>
+                    <p className="text-xs text-zinc-400 leading-relaxed font-normal">
+                      {item.desc}
+                    </p>
+                  </div>
 
-          {/* Card 3: Offline to Online QR */}
-          <div className="md:col-span-5 p-1.5 rounded-[2rem] bezel-shell">
-            <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-8 flex flex-col justify-between h-full">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">
-                  03 / Vector Identity
-                </span>
-                <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mt-3 mb-2">
-                  {isUz ? 'Chop etish uchun tayyor QR-kod' : 'Векторный QR для полиграфии'}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed">
-                  {isUz
-                    ? 'Kafe stollari, kiyim teglari yoki avtomobil oynalariga joylashtirish uchun sifatli SVG/PDF fayl taqdim etiladi.'
-                    : 'В комплекте идет готовый файл в векторе для наклеек на столы, меню, визиток и рекламных баннеров.'}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/[0.06] font-mono text-xs text-zinc-400 flex items-center justify-between">
-                <span>Formats: SVG · PDF</span>
-                <span className="text-zinc-200">Print Ready</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Card 4: Zero Maintenance */}
-          <div className="md:col-span-7 p-1.5 rounded-[2rem] bezel-shell">
-            <div className="rounded-[calc(2rem-0.375rem)] bezel-core p-8 flex flex-col justify-between h-full">
-              <div>
-                <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-zinc-400">
-                  04 / Zero Maintenance
-                </span>
-                <h3 className="text-xl sm:text-2xl font-semibold text-white tracking-tight mt-3 mb-2">
-                  {isUz ? 'Texnik xizmat tashvishsiz' : 'Ноль часов на обслуживание'}
-                </h3>
-                <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed max-w-md">
-                  {isUz
-                    ? 'Doimiy buziluvchi WordPress plaginlari yoki server to\'lovlari yo\'q. Saytingiz doim xavfsiz va ishchi holatda turadi.'
-                    : 'Никаких взломанных баз данных, вирусов на хостинге и счетов в конце месяца. Полная изоляция и надежность.'}
-                </p>
-              </div>
-
-              <div className="mt-8 pt-6 border-t border-white/[0.06] flex items-center justify-between font-mono text-xs">
-                <span className="text-zinc-400">SSL + DDOS Shield</span>
-                <button
-                  onClick={onOpenReserve}
-                  className="text-white hover:text-zinc-300 flex items-center gap-1 text-xs"
-                >
-                  <span>{isUz ? 'Bog\'lanish' : 'Забронировать'}</span>
-                  <ArrowUpRight weight="bold" className="w-3.5 h-3.5" />
-                </button>
-              </div>
-            </div>
-          </div>
+                  <div className="mt-8 pt-5 border-t border-white/[0.06] flex items-center justify-end">
+                    <button
+                      onClick={onOpenReserve}
+                      className="font-mono text-xs text-zinc-400 hover:text-white flex items-center gap-1 transition-colors"
+                    >
+                      <span>{isUz ? 'Band qilish' : 'Занять адрес'}</span>
+                      <ArrowUpRight weight="bold" className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
