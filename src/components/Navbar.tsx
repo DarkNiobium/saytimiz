@@ -20,9 +20,12 @@ export const Navbar: React.FC<NavbarProps> = ({ lang, onToggleLang, onOpenReserv
         </a>
 
         {/* Center Navigation Links */}
-        <nav className="hidden md:flex items-center gap-8 text-xs font-medium text-zinc-400">
+        <nav className="hidden md:flex items-center gap-7 text-xs font-medium text-zinc-400">
+          <a href="#builder" className="hover:text-white transition-colors">
+            {isUz ? 'Konstruktor' : 'Конструктор'}
+          </a>
           <a href="#showcase" className="hover:text-white transition-colors">
-            {isUz ? 'Ko\'rinish' : 'Интерфейс'}
+            {isUz ? 'Afzalliklar' : 'Преимущества'}
           </a>
           <a href="#compare" className="hover:text-white transition-colors">
             {isUz ? 'Farqlar' : 'Отличия'}

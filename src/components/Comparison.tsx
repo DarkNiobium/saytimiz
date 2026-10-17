@@ -16,7 +16,7 @@ export const Comparison: React.FC<ComparisonProps> = ({ lang }) => {
     },
     {
       metric: isUz ? 'Boshlang\'ich xarajat' : 'Бюджет проекта',
-      saytimiz: isUz ? '199 000 so\'mdan' : 'от 199 000 сум',
+      saytimiz: '[NARX HOZIRCHA BELGILANMAGAN]',
       traditional: isUz ? '8 000 000 so\'mdan boshlab' : 'от 8 000 000 сум в студиях'
     },
     {

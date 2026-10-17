@@ -148,12 +148,12 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
     {
       id: 'start',
       title: 'Старт',
-      price: '199 000',
-      priceNote: 'сум / разово',
+      price: '[NARX HOZIRCHA BELGILANMAGAN]',
+      priceNote: '',
       description: 'Идеально для быстрой визитки в Instagram, меню кафе или прайс-листа услуг.',
       features: [
         'Поддомен вида brend.saytimiz.uz',
-        'Мобильный сайт с загрузкой 0.2 секунды',
+        'Мобильный сайт с моментальной загрузкой',
         'Кнопка прямой связи в Telegram и звонка',
         'Готовый QR-код в векторе для печати',
         'Бесплатный SSL-сертификат навсегда',
@@ -165,8 +165,8 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
       id: 'business',
       popular: true,
       title: 'Бизнес',
-      price: '490 000',
-      priceNote: 'сум / разово',
+      price: '[NARX HOZIRCHA BELGILANMAGAN]',
+      priceNote: '',
       description: 'Для заведений, магазинов и сервисов, которым нужны прямые продажи без комиссий.',
       features: [
         'Все возможности тарифа Старт',
@@ -175,15 +175,15 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
         'Интеграция с локацией на Yandex и Google Maps',
         'Кнопка оплаты через Click и Payme',
         'Базовая статистика просмотров и кликов',
-        'Приоритетный запуск за 12 часов'
+        'Приоритетный запуск за 10 минут'
       ],
       ctaText: 'Выбрать Бизнес'
     },
     {
       id: 'pro',
       title: 'Индивидуальный',
-      price: '1 200 000',
-      priceNote: 'сум / проект',
+      price: '[NARX HOZIRCHA BELGILANMAGAN]',
+      priceNote: '',
       description: 'Для компаний, которым нужен персональный стиль, собственный домен и сопровождение.',
       features: [
         'Все возможности тарифа Бизнес',
@@ -200,12 +200,12 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
     {
       id: 'start',
       title: 'Start',
-      price: '199 000',
-      priceNote: 'so\'m / bir martalik',
+      price: '[NARX HOZIRCHA BELGILANMAGAN]',
+      priceNote: '',
       description: 'Instagram bio, kafe menyusi yoki xizmatlar narxnomasi uchun qulay va tez yechim.',
       features: [
         'brend.saytimiz.uz ko\'rinishidagi poddomen',
-        '0.2 soniyada ochiladigan mobil sayt',
+        'Tezkor ochiladigan mobil sayt',
         'Telegram va to\'g\'ridan-to\'g\'ri qo\'ng\'iroq tugmasi',
         'Chop etish uchun tayyor vektorli QR-kod',
         'Doimiy bepul SSL xavfsizlik sertifikati',
@@ -217,8 +217,8 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
       id: 'business',
       popular: true,
       title: 'Biznes',
-      price: '490 000',
-      priceNote: 'so\'m / bir martalik',
+      price: '[NARX HOZIRCHA BELGILANMAGAN]',
+      priceNote: '',
       description: 'Agregatorsiz to\'g\'ridan-to\'g\'ri mijozlar oqimi va sotuv kerak bo\'lgan korxonalar uchun.',
       features: [
         'Start tarifining barcha imkoniyatlari',
@@ -234,8 +234,8 @@ export const pricingData: Record<'ru' | 'uz', PricingPlan[]> = {
     {
       id: 'pro',
       title: 'Maxsus',
-      price: '1 200 000',
-      priceNote: 'so\'m / loyiha',
+      price: '[NARX HOZIRCHA BELGILANMAGAN]',
+      priceNote: '',
       description: 'O\'z shaxsiy domeniga ega bo\'lishni va individual dizaynni xohlovchi kompaniyalar uchun.',
       features: [
         'Biznes tarifining barcha imkoniyatlari',

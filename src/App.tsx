@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Language } from './types';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
+import { StudioBuilder } from './components/StudioBuilder';
 import { Showcase } from './components/Showcase';
 import { Comparison } from './components/Comparison';
 import { Pricing } from './components/Pricing';
@@ -41,6 +42,11 @@ export default function App() {
         <Hero
           lang={lang}
           onOpenReserve={(name) => handleOpenReserve(name)}
+        />
+
+        <StudioBuilder
+          lang={lang}
+          onOpenReserve={(name, note) => handleOpenReserve(name, note)}
         />
 
         <Showcase

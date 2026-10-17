@@ -143,14 +143,14 @@ export const ReserveModal: React.FC<ReserveModalProps> = ({
                     onChange={(e) => setSelectedPlan(e.target.value)}
                     className="w-full rounded-xl border border-white/10 bg-black/60 px-3.5 py-2.5 text-xs text-white focus:outline-none focus:border-white/30"
                   >
-                    <option value={isUz ? 'Start (199 000 so\'m)' : 'Старт (199 000 сум)'}>
-                      {isUz ? 'Start (199 000 so\'m)' : 'Старт (199 000 сум)'}
+                    <option value={isUz ? 'Start' : 'Старт'}>
+                      {isUz ? 'Start' : 'Старт'}
                     </option>
-                    <option value={isUz ? 'Biznes (490 000 so\'m)' : 'Бизнес (490 000 сум)'}>
-                      {isUz ? 'Biznes (490 000 so\'m)' : 'Бизнес (490 000 сум)'}
+                    <option value={isUz ? 'Biznes' : 'Бизнес'}>
+                      {isUz ? 'Biznes' : 'Бизнес'}
                     </option>
-                    <option value={isUz ? 'Maxsus (1 200 000 so\'m)' : 'Индивидуальный (1 200 000 сум)'}>
-                      {isUz ? 'Maxsus (1 200 000 so\'m)' : 'Индивидуальный (1 200 000 сум)'}
+                    <option value={isUz ? 'Maxsus' : 'Индивидуальный'}>
+                      {isUz ? 'Maxsus' : 'Индивидуальный'}
                     </option>
                   </select>
                 </div>

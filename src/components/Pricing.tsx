@@ -76,11 +76,10 @@ export const Pricing: React.FC<PricingProps> = ({ lang, onOpenReserve }) => {
                     {plan.description}
                   </p>
 
-                  <div className="flex items-baseline gap-2 pb-6 border-b border-white/[0.06]">
-                    <span className="text-3xl sm:text-4xl font-semibold font-mono tracking-tight text-white">
+                  <div className="pb-6 border-b border-white/[0.06]">
+                    <span className="inline-block px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs font-mono tracking-wider text-amber-300">
                       {plan.price}
                     </span>
-                    <span className="text-xs text-zinc-500 font-mono">{plan.priceNote}</span>
                   </div>
 
                   {/* Features */}
