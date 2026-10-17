@@ -1,13 +1,10 @@
 import React from 'react';
-import { motion } from 'motion/react';
-import { Check, PaperPlaneTilt, Sparkle } from '@phosphor-icons/react';
+import { Check, PaperPlaneTilt } from '@phosphor-icons/react';
 import { MapLanguage } from '../types';
 import { mapPlans } from '../data/mapContent';
-import { AnimatedUnderline } from '../../components/AnimatedUnderline';
 
 interface MapPricingProps {
   lang: MapLanguage;
-  onSelectPlan: (planId: string) => void;
 }
 
 export const MapPricing: React.FC<MapPricingProps> = ({ lang }) => {
@@ -16,117 +13,92 @@ export const MapPricing: React.FC<MapPricingProps> = ({ lang }) => {
 
   const handleOrder = (planTitle: string) => {
     const text = isUz
-      ? `Assalomu alaykum MAPUZ! Men "${planTitle}" paketi bo'yicha buyurtma bermoqchiman. Tafsilotlarni ayta olasizmi?`
-      : `Здравствуйте MAPUZ! Хочу заказать пакет "${planTitle}". Расскажите, пожалуйста, подробнее по условиям и запуску!`;
+      ? `Assalomu alaykum MAPUZ! Men "${planTitle}" paketi bo'yicha arizamni yubormoqchiman. Shartlar va muddatni aniqlashtirib bersangiz!`
+      : `Здравствуйте MAPUZ! Хочу оформить подключение по тарифу "${planTitle}". Подскажите, пожалуйста, детали и сроки!`;
     const url = `https://t.me/mapuz2?text=${encodeURIComponent(text)}`;
     window.open(url, '_blank');
   };
 
   return (
-    <section id="plans" className="py-24 md:py-32 border-t border-white/[0.06] bg-[#050507]">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+    <section id="pricing" className="py-20 border-b border-[#1b2330] bg-[#080b0f] relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-2xl mb-16">
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-zinc-500 mb-3">
-            04 / Service Packages
+        <div className="max-w-2xl mb-14 text-left">
+          <div className="map-mono text-[11px] text-[#f59e0b] uppercase tracking-wider mb-2">
+            05 // SERVICE TIERS
           </div>
-          <h2 className="text-3xl sm:text-5xl font-semibold tracking-[-0.03em] text-white mb-4">
-            {isUz ? (
-              <>
-                Shaffof va aniq{' '}
-                <AnimatedUnderline color="#10b981">
-                  xizmat paketlari
-                </AnimatedUnderline>
-                .
-              </>
-            ) : (
-              <>
-                Прозрачные пакеты{' '}
-                <AnimatedUnderline color="#10b981">
-                  под ключ
-                </AnimatedUnderline>
-                .
-              </>
-            )}
-          </h2>
-          <p className="text-xs sm:text-sm text-zinc-400 leading-relaxed font-normal">
+          <h2 className="map-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
             {isUz
-              ? 'Yashirin to\'lovlarsiz bir martalik ulanish. Barcha huquqlar to\'liq sizning profilingizga o\'tkaziladi.'
-              : 'Фиксированное подключение без скрытых комиссий. Все доступы и права владельца остаются у вас навсегда.'}
+              ? 'Xizmat paketlari va ulash shartlari.'
+              : 'Пакеты подключения под ключ.'}
+          </h2>
+          <p className="text-xs sm:text-sm text-[#8b949e] mt-2">
+            {isUz
+              ? 'Yashirin komissiyalarsiz bir martalik ulanish. To\'liq egalik huquqi sizning nomingizga o\'tadi.'
+              : 'Фиксированное подключение без скрытых платежей. Все доступы и права владельца остаются у вас навсегда.'}
           </p>
         </div>
 
-        {/* Pricing Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 items-stretch">
-          {plans.map((p, idx) => (
-            <motion.div
+        {/* 3 Tier Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-px bg-[#1b2330] p-px border border-[#1b2330]">
+          {plans.map((p) => (
+            <div
               key={p.id}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className={`p-1.5 rounded-[2.2rem] ${
-                p.popular ? 'bezel-shell ring-1 ring-emerald-500/50 shadow-[0_0_35px_rgba(16,185,129,0.15)]' : 'bezel-shell'
+              className={`p-6 sm:p-8 flex flex-col justify-between text-left space-y-6 ${
+                p.popular ? 'bg-[#121720] border-t-2 sm:border-t-0 sm:border-l-2 border-[#f59e0b]' : 'bg-[#0e1218]'
               }`}
             >
-              <div className="rounded-[calc(2.2rem-0.375rem)] bezel-core p-8 flex flex-col justify-between h-full relative">
-                {p.popular && (
-                  <div className="absolute top-5 right-5 px-3 py-1 rounded-full bg-emerald-500 text-zinc-950 font-mono text-[10px] font-bold uppercase tracking-wider flex items-center gap-1 shadow-md">
-                    <Sparkle weight="fill" className="w-3 h-3" />
-                    <span>{isUz ? 'Tavsiya etiladi' : 'Хит продаж'}</span>
-                  </div>
-                )}
-
-                <div>
-                  <h3 className="text-xl font-bold text-white tracking-tight mb-2">
-                    {p.title}
-                  </h3>
-                  <p className="text-xs text-zinc-400 min-h-[34px] leading-relaxed mb-6 font-normal">
-                    {p.tagline}
-                  </p>
-
-                  <div className="pb-5 border-b border-white/[0.06]">
-                    <div className="inline-block px-3 py-1.5 rounded-lg bg-emerald-500/10 border border-emerald-500/20 text-xs font-mono text-emerald-400">
-                      {p.priceText}
-                    </div>
-                  </div>
-
-                  {/* Included Platforms Tag */}
-                  <div className="pt-5 pb-3">
-                    <span className="text-[10px] font-mono uppercase tracking-wider text-zinc-400 block mb-2">
-                      {isUz ? 'Qamrab olinadigan xaritalar:' : 'Подключаемые сервисы:'}
+              <div>
+                <div className="flex items-center justify-between pb-3 mb-4 border-b border-[#1b2330] map-mono text-xs">
+                  <span className="text-[#8b949e] uppercase font-semibold">
+                    {p.id === 'trio' ? 'RECOMMENDED // 3-IN-1' : p.id.toUpperCase()}
+                  </span>
+                  {p.popular && (
+                    <span className="text-[#f59e0b] bg-[#f59e0b]/10 px-2 py-0.5 border border-[#f59e0b]/30">
+                      ENG OMMABOP
                     </span>
-                    <div className="text-xs font-semibold text-zinc-200">
-                      {p.platforms.join(' ')}
-                    </div>
+                  )}
+                </div>
+
+                <h3 className="text-xl font-bold text-white tracking-tight mb-2">
+                  {p.title}
+                </h3>
+                <p className="text-xs text-[#8b949e] leading-relaxed mb-5 min-h-[36px]">
+                  {p.tagline}
+                </p>
+
+                <div className="p-3 bg-[#080b0f] border border-[#1b2330] map-mono text-xs mb-6">
+                  <div className="text-[10px] text-[#8b949e] uppercase mb-1">
+                    {isUz ? 'Ulanadigan xaritalar:' : 'Подключаемые сервисы:'}
                   </div>
-
-                  {/* Feature Checklist */}
-                  <ul className="py-4 space-y-3">
-                    {p.features.map((f, fIdx) => (
-                      <li key={fIdx} className="flex items-start gap-2.5 text-xs text-zinc-300">
-                        <Check weight="bold" className="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                        <span>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="text-[#f0f3f6] font-semibold">{p.platforms.join(' ')}</div>
                 </div>
 
-                <div className="pt-6 border-t border-white/[0.06]">
-                  <button
-                    onClick={() => handleOrder(p.title)}
-                    className={`w-full py-3 rounded-xl font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2 ${
-                      p.popular
-                        ? 'bg-emerald-500 text-zinc-950 hover:bg-emerald-400 shadow-lg'
-                        : 'bg-white text-zinc-950 hover:bg-zinc-200'
-                    }`}
-                  >
-                    <PaperPlaneTilt weight="fill" className="w-3.5 h-3.5" />
-                    <span>{p.ctaText}</span>
-                  </button>
-                </div>
+                {/* Features */}
+                <ul className="space-y-2.5">
+                  {p.features.map((f, fIdx) => (
+                    <li key={fIdx} className="flex items-start gap-2.5 text-xs text-[#f0f3f6]">
+                      <Check weight="bold" className="w-3.5 h-3.5 text-[#f59e0b] shrink-0 mt-0.5" />
+                      <span className="leading-relaxed">{f}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
-            </motion.div>
+
+              <div className="pt-6 border-t border-[#1b2330]">
+                <button
+                  onClick={() => handleOrder(p.title)}
+                  className={`w-full py-3 map-mono text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 transition-colors ${
+                    p.popular
+                      ? 'bg-[#f59e0b] hover:bg-[#d97706] text-black'
+                      : 'bg-[#1b2330] hover:bg-[#253042] text-white'
+                  }`}
+                >
+                  <PaperPlaneTilt weight="fill" className="w-3.5 h-3.5" />
+                  <span>{p.ctaText}</span>
+                </button>
+              </div>
+            </div>
           ))}
         </div>
       </div>

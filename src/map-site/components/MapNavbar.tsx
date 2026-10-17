@@ -1,5 +1,5 @@
 import React from 'react';
-import { PaperPlaneTilt, Globe, MapPin } from '@phosphor-icons/react';
+import { PaperPlaneTilt } from '@phosphor-icons/react';
 import { MapLanguage } from '../types';
 
 interface MapNavbarProps {
@@ -16,46 +16,55 @@ export const MapNavbar: React.FC<MapNavbarProps> = ({
   const isUz = lang === 'uz';
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-40 flex justify-center p-3 sm:p-4 pointer-events-none">
-      <nav className="pointer-events-auto flex items-center justify-between gap-3 px-4 sm:px-6 py-2.5 rounded-full bezel-shell backdrop-blur-2xl bg-black/60 border border-white/10 shadow-2xl max-w-5xl w-full">
-        {/* Brand */}
-        <div className="flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-            <MapPin weight="fill" className="w-4 h-4" />
-          </div>
-          <div className="flex flex-col">
-            <div className="flex items-center gap-1.5 font-bold tracking-tight text-white text-sm sm:text-base">
-              <span>MAPUZ</span>
-              <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-500/20 text-emerald-400 font-mono">2.0</span>
-            </div>
-            <span className="text-[9px] font-mono text-zinc-400 hidden sm:inline-block">
-              map.saytimiz.uz
+    <header className="sticky top-0 z-50 bg-[#080b0f]/95 backdrop-blur-md border-b border-[#1b2330]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between">
+        {/* Brand with technical tag */}
+        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <span className="w-2 h-2 bg-[#f59e0b] inline-block animate-pulse" />
+            <span className="map-display font-bold text-white text-base tracking-tight">
+              MAPUZ
+            </span>
+            <span className="map-mono text-[10px] text-[#f59e0b] border border-[#f59e0b]/30 px-1.5 py-0.2 bg-[#f59e0b]/10">
+              2.0
             </span>
           </div>
+
+          <div className="hidden lg:flex items-center gap-1.5 map-mono text-[11px] text-[#8b949e] pl-3 border-l border-[#1b2330]">
+            <span>41.2995° N, 69.2401° E</span>
+            <span className="text-[#1b2330]">/</span>
+            <span className="text-emerald-400">STATUS: ACTIVE</span>
+          </div>
         </div>
 
-        {/* Center Links */}
-        <div className="hidden md:flex items-center gap-6 font-mono text-xs text-zinc-400">
+        {/* Technical Nav Links */}
+        <nav className="hidden md:flex items-center gap-6 map-mono text-xs text-[#8b949e]">
+          <a href="#diagram" className="hover:text-white transition-colors">
+            01. {isUz ? 'Xarita' : 'Карта'}
+          </a>
+          <a href="#workflow" className="hover:text-white transition-colors">
+            02. {isUz ? 'Bosqichlar' : 'Этапы'}
+          </a>
           <a href="#platforms" className="hover:text-white transition-colors">
-            {isUz ? 'Xaritalar' : 'Карты'}
+            03. {isUz ? 'Tizimlar' : 'Системы'}
+          </a>
+          <a href="#compare" className="hover:text-white transition-colors">
+            04. {isUz ? 'Farqlar' : 'Отличия'}
+          </a>
+          <a href="#pricing" className="hover:text-white transition-colors">
+            05. {isUz ? 'Paketlar' : 'Тарифы'}
           </a>
           <a href="#calculator" className="hover:text-white transition-colors">
-            {isUz ? 'Kalkulyator' : 'Калькулятор'}
+            06. {isUz ? 'Ariza' : 'Заявка'}
           </a>
-          <a href="#plans" className="hover:text-white transition-colors">
-            {isUz ? 'Paketlar' : 'Тарифы'}
-          </a>
-          <a href="#faq" className="hover:text-white transition-colors">
-            FAQ
-          </a>
-        </div>
+        </nav>
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-2.5">
+        {/* Right Action Cluster */}
+        <div className="flex items-center gap-3">
           {onBackToMain && (
             <button
               onClick={onBackToMain}
-              className="text-[10px] font-mono text-zinc-400 hover:text-white px-2 py-1 rounded-lg border border-white/5 bg-white/[0.02] hidden sm:block"
+              className="map-mono text-[11px] text-[#8b949e] hover:text-white px-2 py-1 border border-[#1b2330] hover:border-[#2e3848] transition-colors"
             >
               saytimiz.uz
             </button>
@@ -63,25 +72,23 @@ export const MapNavbar: React.FC<MapNavbarProps> = ({
 
           <button
             onClick={onToggleLang}
-            className="flex items-center gap-1 text-xs font-mono px-2.5 py-1.5 rounded-full border border-white/10 hover:border-white/30 text-zinc-300 hover:text-white transition-colors"
-            title="Tilni o'zgartirish / Сменить язык"
+            className="map-mono text-xs px-2.5 py-1 border border-[#1b2330] text-[#f0f3f6] hover:border-[#f59e0b] transition-colors"
+            title="Til / Язык"
           >
-            <Globe weight="bold" className="w-3.5 h-3.5 text-zinc-400" />
-            <span className="uppercase">{lang}</span>
+            {isUz ? 'UZ / ru' : 'RU / uz'}
           </button>
 
           <a
             href="https://t.me/mapuz2"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-emerald-500 text-zinc-950 font-bold text-xs hover:bg-emerald-400 transition-colors shadow-lg active:scale-95"
+            className="map-mono text-xs px-3.5 py-1.5 bg-[#f59e0b] hover:bg-[#d97706] text-black font-semibold flex items-center gap-1.5 transition-colors"
           >
             <PaperPlaneTilt weight="fill" className="w-3.5 h-3.5" />
-            <span className="hidden sm:inline">@mapuz2</span>
-            <span className="sm:hidden">Telegram</span>
+            <span>@mapuz2</span>
           </a>
         </div>
-      </nav>
+      </div>
     </header>
   );
 };
