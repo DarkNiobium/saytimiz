@@ -5,104 +5,92 @@ export const mapPlans: Record<MapLanguage, MapPlan[]> = {
     {
       id: 'single',
       title: 'Bitta Xarita',
-      tagline: 'Faqat bitta aniq platformaga joylashtirish kerak bo\'lgan bizneslar uchun.',
-      priceText: 'Eng hamyonbop yechim',
+      tagline: 'Faqat Google Maps yoki faqat Yandex Maps.',
+      priceText: 'Boshlang\'ich',
       platforms: ['Google Maps YOKI Yandex Maps'],
       features: [
-        'Tanlangan 1 ta platformada profil yaratish',
-        'Aniq geolokatsiya va kirish eshigi koordinatasi',
-        'Ish vaqti, telefon raqamlari va asosiy fotosuratlar',
-        'Rasmiy moderatsiyadan muammosiz o\'tkazish',
-        'Kompaniya egasi huquqini to\'liq topshirish'
+        'Aniq geolokatsiya va kirish eshigi',
+        'Ish vaqti, telefonlar va fotosuratlar',
+        'To\'liq egalik huquqi sizga topshiriladi'
       ],
-      ctaText: 'Buyurtma berish'
+      ctaText: 'Tanlash'
     },
     {
       id: 'trio',
       popular: true,
       title: 'Standart Trio (3 tasi 1 da)',
-      tagline: 'Eng ommabop paket. O\'zbekistondagi barcha asosiy xaritalarni to\'liq qamrab oladi.',
-      priceText: 'Maksimal tavsiya',
+      tagline: 'Eng ommabop tanlov. Barcha asosiy xaritalarni qamrab oladi.',
+      priceText: 'Tavsiya etiladi',
       platforms: ['Google Maps + Yandex Maps + 2GIS'],
       features: [
-        'Google Maps (Google Business Profile) rasmiy verifikatsiya',
-        'Yandex Maps va Yandex Navigator da aniq yo\'nalish',
-        '2GIS tizimida qavat, kirish eshigi va tovarlar ro\'yxati',
-        'SEO kalit so\'zlar (oshxona, dorixona, servis) bo\'yicha optimizatsiya',
-        'Stollar va peshtaxta uchun vektorli QR stiker sovg\'a',
-        'Egalik huquqini sizning emailingiz va telefoningizga o\'tkazish',
-        'Moderatsiya vaqti: 24-48 soat ichida'
+        'Google Maps rasmiy verifikatsiyasi',
+        'Yandex Go taksilari to\'g\'ri eshikka kelishi',
+        '2GIS da qavat, podyezd va prays-list',
+        'Qidiruvda 1-o\'rinlarga chiqarish (SEO)',
+        'Stollar uchun vektorli QR-stiker sovg\'a',
+        '24-48 soatda tayyor bo\'ladi'
       ],
       ctaText: 'Standart Trio tanlash'
     },
     {
       id: 'vip',
       title: 'VIP All-Inclusive',
-      tagline: 'Maksimal mijozlar oqimi va xaritalarda raqobatchilardan mutlaq ustunlik.',
-      priceText: 'To\'liq premium boshqaruv',
-      platforms: ['Google + Yandex + 2GIS + Apple Maps + Waze'],
+      tagline: 'Maksimal qamrov va to\'liq qo\'llab-quvvatlash.',
+      priceText: 'Premium',
+      platforms: ['Google + Yandex + 2GIS + Apple Maps'],
       features: [
-        'Barcha 5 ta xarita va navigatsiya tizimlariga joylash',
-        'Apple Maps (iPhone va Siri orqali qidiruv) integratsiyasi',
-        'Fasad, interyer va menyu fotosuratlarini professional tahrirlash',
-        'Birinchi 5 yulduzli sharhlarni to\'plash bo\'yicha maslahat',
-        'Salbiy yoki soxta sharhlarni shikoyat qilib tozalash',
-        '3 oy davomida bepul ma\'lumotlarni yangilab turish',
-        'Shaxsiy menejer va ustuvor navbat'
+        'Barcha xaritalar va Apple Maps (Siri)',
+        'Fasad va interyer rasmlarini qayta ishlash',
+        '5 yulduzli sharhlar to\'plash strategiyasi',
+        '3 oy bepul ma\'lumotlarni yangilab turish'
       ],
-      ctaText: 'VIP paketga buyurtma'
+      ctaText: 'VIP paket tanlash'
     }
   ],
   ru: [
     {
       id: 'single',
       title: 'Одна карта',
-      tagline: 'Для тех, кому требуется размещение только на одной конкретной платформе.',
-      priceText: 'Доступный старт',
+      tagline: 'Только Google Maps или только Яндекс Карты.',
+      priceText: 'Базовый',
       platforms: ['Google Maps ИЛИ Яндекс Карты'],
       features: [
-        'Создание профиля на выбранной 1 платформе',
-        'Точная геолокация и координаты входа',
-        'Время работы, телефоны и базовые фотографии',
-        'Гарантированное прохождение модерации',
-        'Полная передача прав владельца организации'
+        'Точная геолокация и вход в здание',
+        'График работы, контакты и фотографии',
+        'Полная передача прав владельца'
       ],
-      ctaText: 'Выбрать одну карту'
+      ctaText: 'Выбрать'
     },
     {
       id: 'trio',
       popular: true,
       title: 'Стандарт Трио (3 в 1)',
-      tagline: 'Самый востребованный пакет. Охватывает все основные навигаторы в Узбекистане.',
-      priceText: 'Выбор большинства',
+      tagline: 'Хит продаж. Охватывает все главные навигаторы Узбекистана.',
+      priceText: 'Рекомендуем',
       platforms: ['Google Maps + Яндекс Карты + 2GIS'],
       features: [
-        'Google Maps (Google Business Profile) с официальной верификацией',
-        'Яндекс Карты и Навигатор с удобным подъездом для такси',
-        '2GIS с этажом, входом и подробным прайс-листом',
-        'SEO-оптимизация под целевые поисковые запросы города',
-        'Векторный макет QR-кода на столы и кассу в подарок',
-        'Привязка всех кабинетов на ваш личный номер и почту',
-        'Срок модерации: 24-48 часов'
+        'Официальная верификация Google Business',
+        'Точный заезд для такси Яндекс Go',
+        '2GIS с этажом, входом и прайс-листом',
+        'Вывод в топ локального поиска',
+        'Печатный макет QR-кода на кассу в подарок',
+        'Готовность за 24-48 часов'
       ],
       ctaText: 'Выбрать Стандарт Трио'
     },
     {
       id: 'vip',
       title: 'VIP All-Inclusive',
-      tagline: 'Максимальный поток гостей и полное доминирование над конкурентами на картах.',
-      priceText: 'Полное сопровождение',
-      platforms: ['Google + Яндекс + 2GIS + Apple Maps + Waze'],
+      tagline: 'Максимальный охват и приоритетное сопровождение.',
+      priceText: 'Премиум',
+      platforms: ['Google + Яндекс + 2GIS + Apple Maps'],
       features: [
-        'Размещение сразу во всех 5 навигационных сервисах',
-        'Интеграция в Apple Maps (поиск через iPhone и голосовой Siri)',
-        'Профессиональная обработка фотографий фасада, интерьера и меню',
-        'Инструкция по набору первых 5-звездочных отзывов',
-        'Защита профилей и оспаривание заказного спама',
-        '3 месяца бесплатной актуализации контактов и акций',
-        'Персональный менеджер и запуск вне очереди'
+        'Все навигаторы плюс Apple Maps и Siri',
+        'Профессиональная обработка фотографий',
+        'Инструкция по набору 5-звездочных отзывов',
+        '3 месяца бесплатной актуализации данных'
       ],
-      ctaText: 'Заказать VIP пакет'
+      ctaText: 'Выбрать VIP пакет'
     }
   ]
 };
@@ -110,46 +98,30 @@ export const mapPlans: Record<MapLanguage, MapPlan[]> = {
 export const mapFaqs = {
   uz: [
     {
-      q: 'O\'zim bepul qo\'shsam bo\'lmaydimi?',
-      a: 'O\'zingiz qo\'shishga uringaningizda xaritalar ko\'pincha 2-3 hafta davomida tasdiqlamaydi yoki manzilni noto\'g\'ri joylashtirib bloklaydi. MAPUZ tekshirilgan hamkor usullari orqali 24-48 soatda rasmiy verifikatsiyadan o\'tkazib, egalik huquqini to\'liq sizga topshiradi.'
+      q: 'Xaritalarda chiqish qancha vaqt oladi?',
+      a: 'Yandex Maps va 2GIS odatda 24 soatda, Google Maps esa 24-48 soat ichida to\'liq qidiruvda ko\'rinishni boshlaydi.'
     },
     {
-      q: 'Xaritada paydo bo\'lish qancha vaqt oladi?',
-      a: 'Yandex Maps va 2GIS odatda 24 soat ichida, Google Maps esa 24 soatdan 48 soatgacha bo\'lgan muddatda to\'liq qidiruvda ko\'rinishni boshlaydi.'
+      q: 'Qanday ma\'lumotlar kerak bo\'ladi?',
+      a: 'Tashkilot nomi, manzili, telefon raqamlari, ish vaqti hamda bino fasadi va ichki ko\'rinishidagi 3-4 ta fotosurat yetarli.'
     },
     {
-      q: 'Qanday ma\'lumotlar talab qilinadi?',
-      a: 'Tashkilot nomi, aniq manzili yoki geolokatsiyasi, ish vaqti, telefon raqamlari hamda binoning tashqi fasadi va ichki ko\'rinishidagi 3-5 ta fotosurat yetarli.'
-    },
-    {
-      q: 'Keyinchalik ma\'lumotlarni o\'zgartirish mumkinmi?',
-      a: 'Ha, albatta. Barcha platformalardagi boshqaruv huquqi sizning shaxsiy emailingiz va telefoningizga biriktiriladi. Telefon raqamingiz, ish vaqtingiz yoki menyuni istalgan vaqtda o\'zingiz yangilashingiz mumkin.'
-    },
-    {
-      q: 'Viloyatlardagi bizneslarni ham joylaysizlarmi?',
-      a: 'Ha, butun O\'zbekiston bo\'ylab ishlaymiz: Toshkent shahri va viloyati, Samarqand, Buxoro, Farg\'ona, Andijon, Namangan, Xorazm, Qashqadaryo va boshqa barcha hududlar.'
+      q: 'Egalik huquqi kimda qoladi?',
+      a: 'Barcha shaxsiy kabinetlar va boshqaruv huquqi to\'liq sizning shaxsiy telefon raqamingiz va emailingizga biriktiriladi.'
     }
   ],
   ru: [
     {
-      q: 'Можно ли добавить точку самостоятельно бесплатно?',
-      a: 'При самостоятельной подаче заявки часто висят на проверке неделями, отклоняются или блокируются роботами из-за ошибок в координатах. MAPUZ профессионально настраивает карточки, проходит модерацию за 24-48 часов и передает вам подтвержденные права владельца.'
-    },
-    {
-      q: 'Сколько времени занимает появление на картах?',
+      q: 'Сколько времени занимает запуск?',
       a: 'Яндекс Карты и 2GIS обычно публикуют карточку за 24 часа. В Google Maps точка становится активной в течение 24-48 часов.'
     },
     {
-      q: 'Какие данные нужны для старта работы?',
-      a: 'Название организации, точная геолокация или адрес, график работы, контактные телефоны и 3-5 фото вывески и интерьера.'
+      q: 'Какие данные требуются для начала?',
+      a: 'Название заведения, адрес или ориентир, телефоны, график работы и 3-4 фотографии вывески и интерьера.'
     },
     {
-      q: 'Смогу ли я сам менять данные после сдачи работы?',
-      a: 'Да, обязательно. Все права передаются на ваш личный аккаунт. Вы в любой момент сможете поменять номер телефона, добавить новые фото или скорректировать часы работы.'
-    },
-    {
-      q: 'Работаете ли вы с регионами Узбекистана?',
-      a: 'Да, мы подключаем объекты по всему Узбекистану: Ташкент, Самарканд, Бухара, Фергана, Андижан, Наманган, Навои, Хорезм и все остальные области.'
+      q: 'Кому принадлежат доступы после сдачи?',
+      a: 'Все права владельца привязываются напрямую к вашему личному номеру телефона и почте.'
     }
   ]
 };

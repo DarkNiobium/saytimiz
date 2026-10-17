@@ -3,11 +3,10 @@ import './map.css';
 import { MapLanguage } from './types';
 import { MapNavbar } from './components/MapNavbar';
 import { MapHero } from './components/MapHero';
-import { MapWorkflow } from './components/MapWorkflow';
 import { MapPlatforms } from './components/MapPlatforms';
-import { MapWhyUs } from './components/MapWhyUs';
+import { MapWorkflow } from './components/MapWorkflow';
 import { MapPricing } from './components/MapPricing';
-import { MapCalculator } from './components/MapCalculator';
+import { MapCtaBanner } from './components/MapCtaBanner';
 import { MapFaq } from './components/MapFaq';
 import { MapFooter } from './components/MapFooter';
 
@@ -23,7 +22,7 @@ export const MapApp: React.FC<MapAppProps> = ({ onBackToMain }) => {
   };
 
   return (
-    <div className="map-site-root min-h-[100dvh] flex flex-col selection:bg-[#f59e0b] selection:text-black">
+    <div className="map-site-root min-h-[100dvh] flex flex-col selection:bg-emerald-500 selection:text-white">
       <MapNavbar
         lang={lang}
         onToggleLang={toggleLang}
@@ -32,17 +31,10 @@ export const MapApp: React.FC<MapAppProps> = ({ onBackToMain }) => {
 
       <main className="flex-1">
         <MapHero lang={lang} />
-
-        <MapWorkflow lang={lang} />
-
         <MapPlatforms lang={lang} />
-
-        <MapWhyUs lang={lang} />
-
+        <MapWorkflow lang={lang} />
         <MapPricing lang={lang} />
-
-        <MapCalculator lang={lang} />
-
+        <MapCtaBanner lang={lang} />
         <MapFaq lang={lang} />
       </main>
 
