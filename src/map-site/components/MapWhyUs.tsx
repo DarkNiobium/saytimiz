@@ -11,17 +11,17 @@ export const MapWhyUs: React.FC<MapWhyUsProps> = ({ lang }) => {
 
   const rows = [
     {
-      metric: isUz ? 'Moderatsiya vaqti' : 'Срок прохождения проверки',
-      manual: isUz ? '2-4 hafta kutish, ko\'pincha robotlar rad etadi' : '2-4 недели, частые отклонения автоматическими ботами',
+      metric: isUz ? 'Moderatsiya va tasdiqlash vaqti' : 'Срок прохождения проверки',
+      manual: isUz ? '2-4 hafta kutish, ko\'pincha robotlar arizani rad etadi' : '2-4 недели, частые отклонения автоматическими ботами',
       mapuz: isUz ? '24-48 soatda rasmiy verifikatsiyadan kafolatli o\'tadi' : 'Гарантированная модерация и активация за 24-48 часов'
     },
     {
-      metric: isUz ? 'Taksi va kirish eshigi' : 'Точка высадки пассажиров такси',
+      metric: isUz ? 'Taksi va kirish eshigi koordinatasi' : 'Точка высадки пассажиров такси',
       manual: isUz ? 'Orqa hovli yoki qo\'shni ko\'cha belgilanadi, taksi adashadi' : 'Точка падает во дворы или тупик, такси привозит клиентов не туда',
-      mapuz: isUz ? 'Asosiy kirish eshigi, podyezd va avtoturargoh koordinatasi biriktiriladi' : 'Точные координаты главного входа и вывески для Яндекс Go'
+      mapuz: isUz ? 'Asosiy kirish eshigi, podyezd va avtoturargoh aniq biriktiriladi' : 'Точные координаты главного входа и вывески для Яндекс Go'
     },
     {
-      metric: isUz ? 'Qidiruvdagi o\'rin (SEO)' : 'Позиция в результатах поиска',
+      metric: isUz ? 'Qidiruvda yuqori chiqish (Local SEO)' : 'Позиция в результатах поиска',
       manual: isUz ? 'Teglar to\'ldirilmagani tufayli 20-30 o\'rinlarda ko\'rinmaydi' : 'Без ключевых рубрик карточка тонет на 20-30 позициях',
       mapuz: isUz ? 'Barcha toifalar to\'g\'ri kiritilib, qidiruvda 1-o\'rinlarga chiqariladi' : 'Правильные теги и категории выводят бизнес в топ локальной выдачи'
     },
@@ -32,64 +32,64 @@ export const MapWhyUs: React.FC<MapWhyUsProps> = ({ lang }) => {
     },
     {
       metric: isUz ? 'Bosma QR stend' : 'Печатные материалы для зала',
-      manual: isUz ? 'Mavjud emas, o\'zingiz dizayner qidirasiz' : 'Отсутствуют, требуется отдельный заказ полиграфии',
+      manual: isUz ? 'Mavjud emas, o\'zingiz alohida dizayner qidirasiz' : 'Отсутствуют, требуется отдельный заказ полиграфии',
       mapuz: isUz ? 'Stollar va kassa uchun vektorli bosma QR-kod bepul beriladi' : 'Готовый векторный макет стикера с QR-кодом передается бесплатно'
     }
   ];
 
   return (
-    <section id="compare" className="py-20 border-b border-[#1b2330] bg-[#080b0f] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section id="compare" className="py-16 md:py-24 bg-white border-b border-slate-200/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="max-w-2xl mb-14 text-left">
-          <div className="map-mono text-[11px] text-[#f59e0b] uppercase tracking-wider mb-2">
-            04 // TECHNICAL AUDIT
+        <div className="max-w-2xl mb-12 text-left">
+          <div className="inline-block px-3 py-1 rounded-full bg-slate-100 text-slate-700 text-xs font-semibold uppercase tracking-wider mb-3">
+            Aniq solishtirish
           </div>
-          <h2 className="map-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             {isUz
-              ? 'Mustaqil qo\'shish va MAPUZ o\'rtasidagi aniq farqlar.'
-              : 'Сравнение: самостоятельное добавление vs MAPUZ.'}
+              ? 'Nega tadbirkorlar o\'zi qo\'shmay, MAPUZ ni tanlashadi?'
+              : 'Почему предприниматели доверяют добавление MAPUZ?'}
           </h2>
-          <p className="text-xs sm:text-sm text-[#8b949e] mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
             {isUz
               ? 'Xaritaga shunchaki nuqta qo\'yish yetarli emas. Eng muhimi, mijozlar adashmasdan to\'g\'ri eshigingizga kelishi.'
-              : 'Поставить точку недостаточно. Главная цель: привести реального клиента к правильной двери.'}
+              : 'Поставить точку недостаточно. Главная цель: привести реального покупателя к правильной двери.'}
           </p>
         </div>
 
-        {/* Technical Comparison Table */}
-        <div className="bg-[#0e1218] border border-[#1b2330]">
+        {/* Clean Light Table */}
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden text-left">
           {/* Table Header */}
-          <div className="grid grid-cols-12 p-4 bg-[#141a22] border-b border-[#1b2330] map-mono text-xs uppercase text-[#8b949e]">
-            <div className="col-span-12 sm:col-span-4 font-semibold text-white">
-              {isUz ? 'Parametr' : 'Параметр'}
+          <div className="grid grid-cols-12 p-4 bg-slate-50 border-b border-slate-200 text-xs font-bold text-slate-600 uppercase">
+            <div className="col-span-12 sm:col-span-4 text-slate-800">
+              {isUz ? 'Aspekt' : 'Критерий'}
             </div>
-            <div className="hidden sm:block sm:col-span-4 text-rose-400">
-              [ {isUz ? 'Mustaqil qo\'shganda' : 'Самостоятельно'} ]
+            <div className="hidden sm:block sm:col-span-4 text-rose-600">
+              {isUz ? 'Mustaqil qo\'shganda' : 'Самостоятельно'}
             </div>
-            <div className="hidden sm:block sm:col-span-4 text-[#f59e0b]">
-              [ MAPUZ // 24H VERIFIED ]
+            <div className="hidden sm:block sm:col-span-4 text-emerald-700">
+              MAPUZ xizmati bilan
             </div>
           </div>
 
-          {/* Table Rows */}
-          <div className="divide-y divide-[#1b2330]">
+          {/* Rows */}
+          <div className="divide-y divide-slate-100">
             {rows.map((row, idx) => (
               <div
                 key={idx}
-                className="grid grid-cols-12 p-4 sm:p-5 text-xs hover:bg-[#121720] transition-colors items-center gap-3 sm:gap-4"
+                className="grid grid-cols-12 p-4 sm:p-5 text-xs sm:text-sm items-center gap-3 sm:gap-4 hover:bg-slate-50/60 transition-colors"
               >
-                <div className="col-span-12 sm:col-span-4 map-mono text-white font-medium">
+                <div className="col-span-12 sm:col-span-4 font-bold text-slate-900">
                   {row.metric}
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 text-[#8b949e] flex items-start gap-2 bg-[#080b0f] sm:bg-transparent p-2.5 sm:p-0 border border-[#1b2330] sm:border-0">
-                  <X weight="bold" className="w-3.5 h-3.5 text-rose-400 shrink-0 mt-0.5" />
+                <div className="col-span-12 sm:col-span-4 text-slate-600 flex items-start gap-2 bg-rose-50/50 sm:bg-transparent p-2 sm:p-0 rounded-lg">
+                  <X weight="bold" className="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{row.manual}</span>
                 </div>
 
-                <div className="col-span-12 sm:col-span-4 text-[#f0f3f6] flex items-start gap-2 bg-[#1a170d] sm:bg-transparent p-2.5 sm:p-0 border border-[#f59e0b]/30 sm:border-0">
-                  <Check weight="bold" className="w-3.5 h-3.5 text-[#f59e0b] shrink-0 mt-0.5" />
+                <div className="col-span-12 sm:col-span-4 text-slate-800 font-medium flex items-start gap-2 bg-emerald-50/60 sm:bg-transparent p-2 sm:p-0 rounded-lg">
+                  <Check weight="bold" className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
                   <span className="leading-relaxed">{row.mapuz}</span>
                 </div>
               </div>

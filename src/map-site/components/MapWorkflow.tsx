@@ -11,85 +11,82 @@ export const MapWorkflow: React.FC<MapWorkflowProps> = ({ lang }) => {
 
   const steps = [
     {
-      num: '01',
-      code: 'PHASE 01 // GEOLOCATION',
+      num: '1',
       icon: MapPin,
-      title: isUz ? 'Geolokatsiya va fotometriya' : 'Сбор координат и фотографий',
+      title: isUz ? 'Ma\'lumotlarni Telegramga yuborasiz' : 'Отправляете данные в Telegram',
       desc: isUz
-        ? 'Tashkilotning aniq GPS koordinatalari, bino fasadi, kirish eshigi, mijozlar podyezdi va ish tartibi belgilanadi. Taksi adashmasligi uchun to\'g\'ri yo\'l chizig\'i biriktiriladi.'
-        : 'Фиксируем точные GPS-координаты входной группы, подъезда для такси, парковки, вывески и интерьера. Исключаем ошибки заезда со дворов.'
+        ? 'Tashkilot nomi, telefon raqamlari, ish vaqti, bino fasadi va kirish eshigi koordinatalarini @mapuz2 ga yuborasiz.'
+        : 'Присылаете название, контакты, график работы, фото вывески и точку входа в здание в диалог @mapuz2.'
     },
     {
-      num: '02',
-      code: 'PHASE 02 // VERIFICATION',
+      num: '2',
       icon: ShieldCheck,
-      title: isUz ? 'Rasmiy moderatsiya va tasdiq' : 'Официальная модерация и синяя галочка',
+      title: isUz ? 'Biz 24-48 soatda rasmiy tasdiqlaymiz' : 'Мы проходим официальную модерацию',
       desc: isUz
-        ? 'Google Business Profile, Yandex Biznes va 2GIS ma\'lumotnomasiga arizalar kiritiladi. Robotlar va xatoliklar filtri aylanib o\'tilib, 24-48 soatda rasmiy tasdiqlanadi.'
-        : 'Создаем профили в Google Business, Яндекс Справочнике и 2GIS. Проходим верификацию без зависания на проверке и защищаем карточку от удаления.'
+        ? 'Google Business, Yandex Biznes va 2GIS ro\'yxatidan o\'tkazamiz. Xatoliklar filtrini chetlab o\'tib, rasmiy ko\'k belgi bilan tasdiqlaymiz.'
+        : 'Создаем карточки в Google, Яндекс и 2GIS. Проходим верификацию без зависания и закрепляем правильную точку заезда.'
     },
     {
-      num: '03',
-      code: 'PHASE 03 // HANDOVER & TRAFFIC',
+      num: '3',
       icon: QrCode,
-      title: isUz ? 'Egalik huquqini topshirish va QR-kod' : 'Передача прав и печатный QR-код',
+      title: isUz ? 'Egalik huquqini olasiz va buyurtmalar keladi' : 'Получаете права владельца и поток клиентов',
       desc: isUz
-        ? 'Barcha kabinetlar to\'liq sizning shaxsiy emailingiz va telefoningizga o\'tkaziladi. Stollar va kassa uchun "Bizni xaritada baholang" vektorli bosma QR-kod bepul beriladi.'
-        : 'Все права владельца привязываются к вашему личному номеру и почте. Передаем готовый векторный макет стойки с QR-кодом для сбора отзывов гостей.'
+        ? 'Barcha kabinetlar shaxsiy raqamingizga o\'tkaziladi. Stollar va kassa uchun bepul vektorli QR-kod stikerini topshiramiz.'
+        : 'Все профили передаются на ваш личный номер и почту. Передаем готовый печатный макет QR-кода на кассу в подарок.'
     }
   ];
 
   return (
-    <section id="workflow" className="py-20 border-b border-[#1b2330] bg-[#080b0f] relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="max-w-2xl mb-14 text-left">
-          <div className="map-mono text-[11px] text-[#f59e0b] uppercase tracking-wider mb-2">
-            02 // VERIFICATION PIPELINE
+    <section id="workflow" className="py-16 md:py-24 bg-slate-50 border-b border-slate-200/80">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6">
+        {/* Header */}
+        <div className="max-w-2xl mb-12 text-left">
+          <div className="inline-block px-3 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-semibold uppercase tracking-wider mb-3">
+            Qulay va tezkor
           </div>
-          <h2 className="map-display text-3xl sm:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
             {isUz
-              ? 'Xaritalarga joylashtirishning 3 bosqichli tartibi.'
-              : 'Процесс подключения бизнеса в 3 четких шага.'}
+              ? 'Xaritalarga ulanishning 3 ta oson qadami.'
+              : 'Подключение бизнеса в 3 простых шага.'}
           </h2>
-          <p className="text-xs sm:text-sm text-[#8b949e] mt-2">
+          <p className="text-sm sm:text-base text-slate-600 mt-2 font-normal">
             {isUz
-              ? 'Hech qanday ortiqcha byurokratiya yo\'q. Ma\'lumotlarni Telegramga yuborasiz, qolganini o\'zimiz bajaramiz.'
-              : 'Никакой лишней бюрократии. Вы присылаете базовые данные в Telegram, мы сдаем готовую точку.'}
+              ? 'Hech qanday murakkablik yo\'q. Barcha sozlash va tasdiqlash ishlarini o\'zimiz to\'liq bajaramiz.'
+              : 'Никакой лишней волокиты. Все технические и согласовательные моменты мы берем на себя.'}
           </p>
         </div>
 
-        {/* 3 Step Architectural Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-[#1b2330] p-px border border-[#1b2330]">
+        {/* 3 Step Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {steps.map((s, idx) => {
             const Icon = s.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#0e1218] p-6 sm:p-8 flex flex-col justify-between text-left space-y-6 hover:bg-[#121720] transition-colors"
+                className="p-6 sm:p-8 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between text-left space-y-6 hover:shadow-md transition-shadow"
               >
                 <div>
-                  <div className="flex items-center justify-between pb-4 mb-4 border-b border-[#1b2330] map-mono text-xs">
-                    <span className="text-[#f59e0b] font-bold text-base">{s.num}</span>
-                    <span className="text-[#8b949e] text-[10px] uppercase">{s.code}</span>
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="w-10 h-10 rounded-xl bg-emerald-600 text-white font-extrabold text-lg flex items-center justify-center">
+                      {s.num}
+                    </span>
+                    <div className="w-9 h-9 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center">
+                      <Icon weight="bold" className="w-5 h-5" />
+                    </div>
                   </div>
 
-                  <div className="w-9 h-9 bg-[#1b2330] text-[#f59e0b] flex items-center justify-center mb-4">
-                    <Icon weight="bold" className="w-5 h-5" />
-                  </div>
-
-                  <h3 className="text-lg font-bold text-white tracking-tight mb-2">
+                  <h3 className="text-lg font-bold text-slate-900 tracking-tight mb-2">
                     {s.title}
                   </h3>
 
-                  <p className="text-xs text-[#8b949e] leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
                     {s.desc}
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-[#1b2330] map-mono text-[11px] text-[#f59e0b]">
-                  {idx === 0 && (isUz ? '01. Geoma\'lumotlar' : '01. Координаты')}
-                  {idx === 1 && (isUz ? '02. 24-48 soat moderatsiya' : '02. 24-48 часов модерация')}
+                <div className="pt-4 border-t border-slate-100 text-xs font-semibold text-emerald-700">
+                  {idx === 0 && (isUz ? '01. Ma\'lumotlarni qabul qilish' : '01. Прием исходных данных')}
+                  {idx === 1 && (isUz ? '02. 24-48 soatda faollashish' : '02. Активация за 24-48 часов')}
                   {idx === 2 && (isUz ? '03. 100% topshirish' : '03. 100% сдача прав')}
                 </div>
               </div>
